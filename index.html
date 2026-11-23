@@ -1,293 +1,2064 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="dark scroll-smooth">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="google-site-verification" content="oAfFa2SFCU4lf6i4CYFadL1fZ81UC5_SyNDWjaZBbuY" />
-    <meta name="description" content="Katiar Wadhi - Informatics Engineering Student at Universitas Indraprasta PGRI Jakarta.">
-    <meta name="keywords" content="Katiar Wadhi, Katiar, Katiar Wadhi Portofolio, Portofolio Katiar Wadhi">
-    <meta name="author" content="Katiar Wadhi">
-    <meta name="robots" content="index, follow">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Changa+One:ital@0;1&family=Lilita+One&family=Luckiest+Guy&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="style.css">
-    <title>Portofolio - Katiar Wadhi</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="google-site-verification" content="oAfFa2SFCU4lf6i4CYFadL1fZ81UC5_SyNDWjaZBbuY" />
+  <title>Katiar Wadhi — Backend &amp; Fullstack Developer Portfolio</title>
+  <meta name="description" content="Portfolio of Katiar Wadhi - Informatics Engineering Student &amp; Fullstack, Backend &amp; Mobile Developer specializing in Laravel, PHP, Flutter, Java, and MySQL. Based in Jakarta, Indonesia.">
+  <meta name="keywords" content="Katiar Wadhi, Katiar, Katiar Wadhi Portofolio, Portofolio Katiar Wadhi, Backend Developer, Fullstack Developer, Laravel, Flutter">
+  <meta name="author" content="Katiar Wadhi">
+  <meta name="robots" content="index, follow">
+
+  <!-- Google Fonts: Plus Jakarta Sans & JetBrains Mono -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,400..800;1,400..800&family=Plus+Jakarta+Sans:ital,wght@0,400..800;1,400..800&display=swap" rel="stylesheet">
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+            mono: ['"JetBrains Mono"', 'monospace'],
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Custom CSS Variables for High-Contrast Dark & Light Themes -->
+  <style>
+    :root {
+      --bg-primary: #f8fafc;
+      --bg-card: rgba(255, 255, 255, 0.92);
+      --border-color: #cbd5e1;
+      --text-main: #0f172a;
+      --text-muted: #475569;
+      --glass-bg: rgba(255, 255, 255, 0.88);
+      --spotlight: radial-gradient(circle 650px at 50% 15%, rgba(14, 165, 233, 0.1), rgba(16, 185, 129, 0.05), transparent 70%);
+    }
+
+    html.dark {
+      --bg-primary: #09090b;
+      --bg-card: rgba(17, 17, 21, 0.88);
+      --border-color: rgba(255, 255, 255, 0.09);
+      --text-main: #f4f4f5;
+      --text-muted: #a1a1aa;
+      --glass-bg: rgba(17, 17, 21, 0.85);
+      --spotlight: radial-gradient(circle 650px at 50% 15%, rgba(56, 189, 248, 0.12), rgba(16, 185, 129, 0.05), transparent 70%);
+    }
+
+    body {
+      background-color: var(--bg-primary);
+      color: var(--text-main);
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      transition: background-color 0.3s ease, color 0.3s ease;
+      overflow-x: hidden;
+    }
+
+    .ambient-spotlight {
+      background: var(--spotlight);
+    }
+
+    /* Glassmorphism Panel */
+    .glass-panel {
+      background: var(--glass-bg);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border: 1px solid var(--border-color);
+      transition: background-color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    /* Smooth Hover Lift without GSAP Conflict */
+    .skill-card, .project-card {
+      transition: transform 0.25s cubic-bezier(0.22, 1, 0.36, 1), border-color 0.25s ease, box-shadow 0.25s ease;
+    }
+    .skill-card:hover {
+      transform: translateY(-6px);
+    }
+
+    /* Custom Scrollbar */
+    ::-webkit-scrollbar {
+      width: 8px;
+    }
+    ::-webkit-scrollbar-track {
+      background: var(--bg-primary);
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #94a3b8;
+      border-radius: 4px;
+    }
+    html.dark ::-webkit-scrollbar-thumb {
+      background: #3f3f46;
+    }
+
+    /* Typewriter Cursor */
+    .typing-cursor::after {
+      content: '|';
+      margin-left: 2px;
+      animation: blink 0.9s infinite;
+    }
+    @keyframes blink {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0; }
+    }
+
+    /* Subtle Floating Animation for Hero Photo Card */
+    @keyframes floatSlow {
+      0%, 100% { transform: translateY(0px); }
+      50% { transform: translateY(-6px); }
+    }
+    .animate-float-slow {
+      animation: floatSlow 5s ease-in-out infinite;
+    }
+  </style>
+
+  <!-- GSAP 3 & ScrollTrigger -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
 </head>
-<body>
-    <!-- Overlay untuk menu mobile -->
-    <div class="overlay" id="overlay"></div>
-    
-    <!-- Header dengan Hamburger -->
-    <header class="header" id="header">
-        <h1 class="logo">Katiar Wadhi</h1>
+<body class="relative min-h-screen selection:bg-sky-500 selection:text-white">
+
+  <!-- Ambient Background Glow -->
+  <div class="ambient-spotlight fixed inset-0 pointer-events-none z-0"></div>
+
+  <!-- Top Reading Progress Bar -->
+  <div id="scroll-progress" class="fixed top-0 left-0 h-1 bg-gradient-to-r from-sky-400 via-emerald-400 to-sky-500 z-50 w-0"></div>
+
+  <!-- Toast Notification Container -->
+  <div id="toast-container" class="fixed top-20 right-4 z-50 flex flex-col gap-2 pointer-events-none"></div>
+
+  <!-- FLOATING TOP HEADER (Desktop Only - Hidden on Mobile) -->
+  <header class="hidden md:block fixed top-4 inset-x-4 max-w-6xl mx-auto z-40">
+    <div class="glass-panel rounded-2xl px-5 py-3 flex items-center justify-between shadow-lg">
+      
+      <!-- Brand Logo -->
+      <a href="#home" class="flex items-center gap-2.5 group">
+        <span class="font-mono font-bold tracking-tight text-lg text-slate-900 dark:text-white">
+          &lt;<span class="text-sky-600 dark:text-sky-400">KatiarWadhi</span>/&gt;
+        </span>
+      </a>
+
+      <!-- Desktop Nav Items -->
+      <nav class="flex items-center gap-1 bg-slate-200/70 dark:bg-zinc-900/70 p-1.5 rounded-xl border border-slate-300/80 dark:border-zinc-800">
+        <a href="#home" data-i18n="nav.home" class="nav-link px-4 py-1.5 rounded-lg text-sm font-medium text-slate-700 dark:text-zinc-300 hover:text-sky-600 dark:hover:text-sky-400 transition-all">Home</a>
+        <a href="#about" data-i18n="nav.about" class="nav-link px-4 py-1.5 rounded-lg text-sm font-medium text-slate-700 dark:text-zinc-300 hover:text-sky-600 dark:hover:text-sky-400 transition-all">About</a>
+        <a href="#skills" data-i18n="nav.skills" class="nav-link px-4 py-1.5 rounded-lg text-sm font-medium text-slate-700 dark:text-zinc-300 hover:text-sky-600 dark:hover:text-sky-400 transition-all">Skills</a>
+        <a href="#projects" data-i18n="nav.projects" class="nav-link px-4 py-1.5 rounded-lg text-sm font-medium text-slate-700 dark:text-zinc-300 hover:text-sky-600 dark:hover:text-sky-400 transition-all">Projects</a>
+        <a href="#contact" data-i18n="nav.contact" class="nav-link px-4 py-1.5 rounded-lg text-sm font-medium text-slate-700 dark:text-zinc-300 hover:text-sky-600 dark:hover:text-sky-400 transition-all">Contact</a>
+      </nav>
+
+      <!-- Desktop Language Switcher & Theme Toggle -->
+      <div class="flex items-center gap-2.5">
+        <!-- Language Toggle -->
+        <button type="button" aria-label="Switch Language" class="lang-toggle-btn px-3 py-2 rounded-xl bg-slate-200/80 dark:bg-zinc-800/80 text-slate-800 dark:text-zinc-200 border border-slate-300 dark:border-zinc-700/60 hover:border-sky-500 transition-all font-mono text-xs font-bold flex items-center gap-1.5">
+          <svg class="w-3.5 h-3.5 text-sky-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5h12M9 3v2m1.048 9.5A18.022 18.022 0 016.412 9m6.088 9h7M11 21l5-10 5 10M12.751 5C11.783 10.77 8.07 15.61 3 18.129"/></svg>
+          <span class="lang-label">ID</span>
+        </button>
+
+        <!-- Theme Toggle -->
+        <button type="button" aria-label="Toggle Dark or Light Mode" class="theme-toggle-btn p-2.5 rounded-xl bg-slate-200/80 dark:bg-zinc-800/80 text-slate-800 dark:text-zinc-200 border border-slate-300 dark:border-zinc-700/60 hover:border-sky-500 transition-all">
+          <svg class="w-4 h-4 hidden dark:block text-amber-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"/></svg>
+          <svg class="w-4 h-4 block dark:hidden text-sky-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"/></svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- MOBILE FLOATING CONTROLS: LANGUAGE & THEME TOGGLE (Shown Only on Mobile) -->
+  <div class="md:hidden fixed top-4 right-4 z-40 flex items-center gap-2">
+    <button type="button" aria-label="Switch Language" class="lang-toggle-btn glass-panel px-3 py-2.5 rounded-2xl text-slate-800 dark:text-zinc-200 border border-slate-300/90 dark:border-zinc-700/80 shadow-xl hover:border-sky-500 active:scale-95 transition-all font-mono text-xs font-bold flex items-center gap-1.5">
+      <svg class="w-4 h-4 text-sky-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5h12M9 3v2m1.048 9.5A18.022 18.022 0 016.412 9m6.088 9h7M11 21l5-10 5 10M12.751 5C11.783 10.77 8.07 15.61 3 18.129"/></svg>
+      <span class="lang-label">ID</span>
+    </button>
+
+    <button type="button" aria-label="Toggle Dark or Light Mode" class="theme-toggle-btn glass-panel p-2.5 rounded-2xl text-slate-800 dark:text-zinc-200 border border-slate-300/90 dark:border-zinc-700/80 shadow-xl hover:border-sky-500 active:scale-95 transition-all">
+      <svg class="w-5 h-5 hidden dark:block text-amber-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"/></svg>
+      <svg class="w-5 h-5 block dark:hidden text-sky-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"/></svg>
+    </button>
+  </div>
+
+  <!-- MOBILE FLOATING BOTTOM NAVIGATION DOCK -->
+  <div class="md:hidden fixed bottom-4 inset-x-4 max-w-md mx-auto z-40">
+    <nav class="glass-panel rounded-2xl p-1.5 shadow-2xl flex items-center justify-around border border-slate-300/90 dark:border-zinc-800">
+      <a href="#home" class="mobile-nav-item flex flex-col items-center py-1.5 px-3 rounded-xl text-[11px] font-semibold transition-all bg-sky-500/15 text-sky-600 dark:text-sky-400 border border-sky-500/30" data-section="home">
+        <svg class="w-5 h-5 mb-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 00-1-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"/></svg>
+        <span data-i18n="nav.home">Home</span>
+      </a>
+
+      <a href="#about" class="mobile-nav-item flex flex-col items-center py-1.5 px-3 rounded-xl text-[11px] font-medium transition-all text-slate-600 dark:text-zinc-400" data-section="about">
+        <svg class="w-5 h-5 mb-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"/></svg>
+        <span data-i18n="nav.about">About</span>
+      </a>
+
+      <a href="#skills" class="mobile-nav-item flex flex-col items-center py-1.5 px-3 rounded-xl text-[11px] font-medium transition-all text-slate-600 dark:text-zinc-400" data-section="skills">
+        <svg class="w-5 h-5 mb-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"/></svg>
+        <span data-i18n="nav.skills">Skills</span>
+      </a>
+
+      <a href="#projects" class="mobile-nav-item flex flex-col items-center py-1.5 px-3 rounded-xl text-[11px] font-medium transition-all text-slate-600 dark:text-zinc-400" data-section="projects">
+        <svg class="w-5 h-5 mb-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"/></svg>
+        <span data-i18n="nav.projects">Projects</span>
+      </a>
+
+      <a href="#contact" class="mobile-nav-item flex flex-col items-center py-1.5 px-3 rounded-xl text-[11px] font-medium transition-all text-slate-600 dark:text-zinc-400" data-section="contact">
+        <svg class="w-5 h-5 mb-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+        <span data-i18n="nav.contact">Contact</span>
+      </a>
+    </nav>
+  </div>
+
+  <!-- 1. HERO SECTION (#home) -->
+  <section id="home" class="relative z-10 min-h-screen pt-16 md:pt-28 pb-16 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto flex flex-col justify-center">
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
+      
+      <!-- Hero Left Column -->
+      <div class="lg:col-span-7 space-y-6 hero-text-animate">
         
-        <!-- Hamburger Menu Icon -->
-        <div class="hamburger" id="hamburger">
-            <span></span>
-            <span></span>
-            <span></span>
+        <!-- Live Status Badge -->
+        <div class="inline-flex items-center gap-2.5 px-3.5 py-1.5 rounded-full bg-emerald-500/10 border border-emerald-500/30 text-emerald-700 dark:text-emerald-400 text-xs sm:text-sm font-medium max-w-[calc(100%-7.5rem)] md:max-w-none">
+          <span class="relative flex h-2.5 w-2.5 shrink-0">
+            <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+            <span class="relative inline-flex rounded-full h-2.5 w-2.5 bg-emerald-500"></span>
+          </span>
+          <span data-i18n="hero.badge" class="truncate">Available for Freelance &amp; Full-Time Roles</span>
         </div>
+
+        <!-- Main Title & Typewriter -->
+        <div class="space-y-2">
+          <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-slate-900 dark:text-white leading-tight">
+            <span data-i18n="hero.greeting">Hi, I'm</span> <span class="bg-gradient-to-r from-sky-500 via-teal-400 to-emerald-500 bg-clip-text text-transparent">Katiar Wadhi</span>
+          </h1>
+          <p class="text-xl sm:text-2xl font-mono text-slate-600 dark:text-zinc-400 min-h-[2.5rem] flex items-center">
+            <span id="typewriter" class="typing-cursor font-semibold text-sky-600 dark:text-sky-400"></span>
+          </p>
+        </div>
+
+        <!-- Bio Summary -->
+        <p data-i18n="hero.bio" class="text-base sm:text-lg text-slate-600 dark:text-zinc-400 leading-relaxed max-w-2xl">
+          Passionate Web &amp; Mobile Developer building modern, scalable, and visually appealing applications. Focused on system performance, clean architecture, and maintainable code.
+        </p>
+
+        <!-- Location & Key Tech Chips -->
+        <div class="flex flex-wrap gap-2.5 pt-1">
+          <span class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-mono bg-slate-200/80 dark:bg-zinc-800/80 text-slate-800 dark:text-zinc-300 border border-slate-300 dark:border-zinc-700/60">
+            <svg class="w-3.5 h-3.5 text-rose-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+            Jakarta, Indonesia
+          </span>
+          <span class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-mono bg-sky-500/10 text-sky-700 dark:text-sky-300 border border-sky-500/30">
+            Laravel • Flutter • Java • PHP
+          </span>
+          <span class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-mono bg-emerald-500/10 text-emerald-700 dark:text-emerald-300 border border-emerald-500/30">
+            MySQL • REST APIs
+          </span>
+        </div>
+
+        <!-- Action Buttons -->
+        <div class="flex flex-wrap items-center gap-4 pt-2">
+          <a href="#projects" class="px-6 py-3.5 rounded-xl bg-gradient-to-r from-sky-500 to-emerald-500 hover:from-sky-400 hover:to-emerald-400 text-slate-950 font-bold text-sm shadow-lg shadow-sky-500/20 transition-all transform hover:-translate-y-0.5 flex items-center gap-2">
+            <span data-i18n="hero.ctaProjects">View My Projects</span>
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+          </a>
+
+          <button id="copy-email-btn" type="button" class="px-5 py-3.5 rounded-xl bg-white dark:bg-zinc-900/90 text-slate-800 dark:text-zinc-200 border border-slate-300 dark:border-zinc-700/80 hover:border-sky-500 transition-all font-semibold text-sm flex items-center gap-2 shadow-sm">
+            <svg class="w-4 h-4 text-sky-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"/></svg>
+            <span id="copy-btn-text" data-i18n="hero.copyEmail">Copy Email</span>
+          </button>
+        </div>
+
+      </div>
+
+      <!-- Hero Right Column: Katiar Avatar Card + Interactive Developer Terminal -->
+      <div class="lg:col-span-5 space-y-4 hero-terminal-animate">
         
-        <!-- Navigation Menu -->
-        <nav class="nav" id="nav">
-            <a href="#home">Home</a>
-            <a href="#about">About</a>
-            <a href="#skills">Skills</a>
-            <a href="#projects">Projects</a>
-            <a href="#contact">Contact</a>
-        </nav>
-    </header>
-    
-    <!-- Hero Section -->
-    <div class="hero" id="home">
-        <div class="content">
-            <h2>
-                <span class="hai">Hi.. I'm </span>
-                <span id="typing"></span><span class="cursor">|</span>
-            </h2>
-            <p>A passionate Web Developer who builds modern, functional, and visually appealing websites. 
-            I focus on developing web applications with strong attention to performance, user experience, and clean, maintainable code.</p>        
+        <!-- Katiar Visual Profile Card -->
+        <div class="glass-panel rounded-2xl p-4 flex items-center justify-between gap-4 shadow-lg animate-float-slow">
+          <div class="flex items-center gap-4">
+            <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-sky-500 to-emerald-500 flex items-center justify-center text-slate-950 font-mono font-extrabold text-lg shadow-md shrink-0">
+              KW
+            </div>
+            <div>
+              <div class="flex items-center gap-2">
+                <h2 class="font-bold text-base sm:text-lg text-slate-900 dark:text-white">Katiar Wadhi</h2>
+                <span class="px-2 py-0.5 rounded-md text-[10px] font-mono font-semibold bg-sky-500/15 text-sky-600 dark:text-sky-400 border border-sky-500/30">DEV</span>
+              </div>
+              <p class="text-xs font-mono text-slate-600 dark:text-zinc-400 mt-0.5">Backend &amp; Mobile Developer</p>
+              <p data-i18n="hero.cardSub" class="text-[11px] font-mono text-emerald-600 dark:text-emerald-400 mt-1">Informatics Engineering • Jakarta</p>
+            </div>
+          </div>
+
+          <a href="#about" class="p-2.5 rounded-xl bg-slate-100 dark:bg-zinc-800/80 hover:bg-sky-500 hover:text-slate-950 text-slate-700 dark:text-zinc-300 border border-slate-200 dark:border-zinc-700 transition-all" title="View Full Profile">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"/></svg>
+          </a>
         </div>
-        <div class="image">
-            <img src="img/icon.png" alt="Katiar Wadhi - Web Developer">       
-        </div>
-    </div>
-    
-    <!-- About Section -->
-    <div class="aboutMe" id="about">
-        <div class="card">
-            <div class="image-about">
-                <img src="img/katiar.png" alt="Katiar Wadhi - Web Developer">
-            </div>
-            <div class="teks">
-                <h2>About Me</h2>
-                <p>
-                    Hello! I'm Katiar Wadhi, a passionate Backend and Fullstack Developer specializing in building web and mobile applications that are efficient,
-                    scalable, and user-friendly. I have hands-on experience with Laravel, PHP, MySQL, Java, Flutter, and Dart, and I enjoy creating robust systems for web and mobile platforms. 
-                    I thrive in collaborative environments and love solving complex problems with practical and innovative solutions. When I'm not coding, I explore new technologies and contribute to projects that make an impact. Let's connect and build something amazing together!
-                </p>
-            </div>
-        </div>
-    </div>
-    
-    <!-- Skills Section -->
-    <div class="skills" id="skills">
-        <h2>Skills</h2>
-        <div class="skills-container">
-            <div class="skill-item">
-                <img src="img/laravel.png" alt="Laravel">
-                <span>Laravel</span>
-            </div>
-            <div class="skill-item">
-                <img src="img/php.png" alt="PHP">
-                <span>PHP</span>
-            </div>
-            <div class="skill-item">
-                <img src="img/java.png" alt="Java">
-                <span>Java</span>
-            </div>
-            <div class="skill-item">
-                <img src="img/js.png" alt="JavaScript">
-                <span>JavaScript</span>
-            </div>
-            <div class="skill-item">
-                <img src="img/dart.png" alt="Dart">
-                <span>Dart</span>
-            </div>
-            <div class="skill-item">
-                <img src="img/flutter.svg" alt="Flutter">
-                <span>Flutter</span>
-            </div>
-            <div class="skill-item">
-                <img src="img/mysql.png" alt="MySQL">
-                <span>MySQL</span>
-            </div>
-        </div>
-    </div>
-    
-    <!-- Projects Section -->
-    <div class="projects" id="projects">
-        <h2>My Projects</h2>
-        <div class="projects-container">
-            <div class="project-card">
-                <div class="project-content">
-                    <h3>E-Commerce Web Application</h3>
-                    <p>Web-based e-commerce application featuring product management, shopping cart, checkout process, and payment gateway integration.</p>
-                    <div class="tech-stack">
-                        <span class="tech-tag">Laravel</span>
-                        <span class="tech-tag">PHP</span>
-                        <span class="tech-tag">MySQL</span>
-                        <span class="tech-tag">JavaScript</span>
-                    </div>
-                </div>
+
+        <!-- Interactive Developer Terminal -->
+        <div class="rounded-2xl border border-slate-300 dark:border-zinc-800 bg-slate-900 dark:bg-zinc-950 shadow-2xl overflow-hidden font-mono text-sm">
+          
+          <!-- macOS Window Titlebar -->
+          <div class="bg-slate-800 dark:bg-zinc-900 px-4 py-3 flex items-center justify-between border-b border-slate-700 dark:border-zinc-800">
+            <div class="flex items-center gap-2">
+              <span class="w-3 h-3 rounded-full bg-rose-500 inline-block"></span>
+              <span class="w-3 h-3 rounded-full bg-amber-500 inline-block"></span>
+              <span class="w-3 h-3 rounded-full bg-emerald-500 inline-block"></span>
             </div>
             
-            <div class="project-card">
-                <div class="project-content">
-                    <h3>Library Management System</h3>
-                    <p>A web-based library system for managing books, categories, borrowing, returns, and user authentication with role-based access.</p>
-                    <div class="tech-stack">
-                        <span class="tech-tag">Laravel</span>
-                        <span class="tech-tag">PHP</span>
-                        <span class="tech-tag">JavaScript</span>
-                        <span class="tech-tag">MySQL</span>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="project-card">
-                <div class="project-content">
-                    <h3>Class Management Website</h3>
-                    <p>A web application to manage classes, students, schedules, and attendance with a clean and responsive interface.</p>
-                    <div class="tech-stack">
-                        <span class="tech-tag">Laravel</span>
-                        <span class="tech-tag">PHP</span>
-                        <span class="tech-tag">JavaScript</span>
-                        <span class="tech-tag">MySQL</span>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="project-card">
-                <div class="project-content">
-                    <h3>Point of Sale (POS) Web Application</h3>
-                    <p>A web-based cashier system for handling sales transactions, product management, payment processing, and daily sales reports.</p>
-                    <div class="tech-stack">
-                        <span class="tech-tag">Laravel</span>
-                        <span class="tech-tag">PHP</span>
-                        <span class="tech-tag">JavaScript</span>
-                        <span class="tech-tag">MySQL</span>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="project-card">
-                <div class="project-content">
-                    <h3>Laundry Management System</h3>
-                    <p>A web application for managing laundry orders, customer data, service types, pricing, and order status tracking.</p>
-                    <div class="tech-stack">
-                        <span class="tech-tag">PHP</span>
-                        <span class="tech-tag">JavaScript</span>
-                        <span class="tech-tag">MySQL</span>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="project-card">
-                <div class="project-content">
-                    <h3>E-Commerce Mobile App</h3>
-                    <p>Mobile e-commerce application that allows users to browse products, manage shopping carts, place orders, and track purchases through a clean and user-friendly interface.</p>
-                    <div class="tech-stack">
-                        <span class="tech-tag">Flutter</span>
-                        <span class="tech-tag">Dart</span>
-                        <span class="tech-tag">Rest API</span>
-                        <span class="tech-tag">Laravel</span>
-                        <span class="tech-tag">MySQL</span>
-                    </div>
-                </div>
+            <!-- Terminal Tabs -->
+            <div class="flex items-center gap-1 bg-slate-950/60 p-1 rounded-lg border border-slate-700/80 dark:border-zinc-800">
+              <button class="terminal-tab px-2.5 py-0.5 rounded text-xs text-sky-400 bg-slate-800 dark:bg-zinc-800 font-medium" data-tab="json">developer.json</button>
+              <button class="terminal-tab px-2.5 py-0.5 rounded text-xs text-zinc-400 hover:text-zinc-200 font-medium" data-tab="stack">stack.ts</button>
+              <button class="terminal-tab px-2.5 py-0.5 rounded text-xs text-zinc-400 hover:text-zinc-200 font-medium" data-tab="status">status.sh</button>
             </div>
 
-            <div class="project-card">
-                <div class="project-content">
-                    <h3>Car Rental Desktop Application</h3>
-                    <p>A desktop-based car rental application that manages vehicle data, customer information, rental transactions, payment records, and return schedules to streamline daily rental operations.</p>
-                    <div class="tech-stack">
-                        <span class="tech-tag">Java</span>
-                        <span class="tech-tag">MySQL</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    
-    <!-- Contact Section -->
-    <div class="contact" id="contact">
-        <h2>Contact Me</h2>
-        <p>Have a project in mind or want to collaborate? Feel free to get in touch!</p>
-        
-        <div class="contact-container">
-            <div class="contact-info">
-                <div class="contact-item">
-                    <div class="contact-icon">
-                        <i class="fas fa-envelope"></i>
-                    </div>
-                    <div class="contact-details">
-                        <h3>Email</h3>
-                        <p>katiarwadhi96@gmail.com</p>
-                    </div>
-                </div>
-                
-                <div class="contact-item">
-                    <div class="contact-icon">
-                        <i class="fas fa-map-marker-alt"></i>
-                    </div>
-                    <div class="contact-details">
-                        <h3>Location</h3>
-                        <p>Jakarta, Indonesia</p>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="contact-form">
-                <form id="contactForm">
-                    <div class="form-group">
-                        <input type="text" placeholder="Your Name" required>
-                    </div>
-                    <div class="form-group">
-                        <input type="email" placeholder="Your Email" required>
-                    </div>
-                    <div class="form-group">
-                        <textarea placeholder="Your Message" required></textarea>
-                    </div>
-                    <button type="submit" class="submit-btn">Send Message</button>
-                </form>
-            </div>
-        </div>
-    </div>
-    
-    <!-- Footer -->
-    <footer>
-        <div class="footer-content">
-            <div class="footer-about">
-                <h3>Katiar Wadhi</h3>
-                <p>A passionate Backend Developer specializing in building efficient and scalable web applications. Let's create something amazing together!</p>
-            </div>
-            
-            <div class="footer-links">
-                <h3>Quick Links</h3>
-                <ul>
-                    <li><a href="#home">Home</a></li>
-                    <li><a href="#about">About</a></li>
-                    <li><a href="#skills">Skills</a></li>
-                    <li><a href="#projects">Projects</a></li>
-                    <li><a href="#contact">Contact</a></li>
-                </ul>
-            </div>
-        </div>
-        
-        <div class="social-links">
-            <a href="#" class="social-icon">
-                <i class="fab fa-github"></i>
-            </a>
-            <a href="#" class="social-icon">
-                <i class="fab fa-linkedin"></i>
-            </a>
-            <a href="#" class="social-icon">
-                <i class="fab fa-twitter"></i>
-            </a>
-            <a href="https://instagram.com/katiarwdhi" class="social-icon">
-                <i class="fab fa-instagram"></i>
-            </a>
-        </div>
-        
-        <div class="copyright">
-            <p>&copy; 2023 Katiar Wadhi. All rights reserved.</p>
-        </div>
-    </footer>
+            <span class="text-xs text-zinc-500 hidden sm:inline">bash</span>
+          </div>
 
-    <script src="script.js"></script>
+          <!-- Terminal Content Area -->
+          <div class="p-5 space-y-4 text-xs sm:text-sm min-h-[280px] bg-slate-900 dark:bg-zinc-950 text-zinc-300">
+            
+            <!-- Tab 1: json -->
+            <div id="tab-content-json" class="terminal-pane space-y-1 text-sky-300">
+              <p class="text-zinc-500">// Personal developer config</p>
+              <p><span class="text-purple-400">{</span></p>
+              <p class="pl-4"><span class="text-sky-400">"name"</span>: <span class="text-emerald-400">"Katiar Wadhi"</span>,</p>
+              <p class="pl-4"><span class="text-sky-400">"role"</span>: <span class="text-emerald-400">"Backend &amp; Mobile Developer"</span>,</p>
+              <p class="pl-4"><span class="text-sky-400">"location"</span>: <span class="text-emerald-400">"Jakarta, Indonesia"</span>,</p>
+              <p class="pl-4"><span class="text-sky-400">"languages"</span>: [<span class="text-amber-300">"PHP"</span>, <span class="text-amber-300">"Java"</span>, <span class="text-amber-300">"Dart"</span>, <span class="text-amber-300">"JavaScript"</span>],</p>
+              <p class="pl-4"><span class="text-sky-400">"frameworks"</span>: [<span class="text-amber-300">"Laravel"</span>, <span class="text-amber-300">"Flutter"</span>],</p>
+              <p class="pl-4"><span class="text-sky-400">"database"</span>: <span class="text-emerald-400">"MySQL"</span>,</p>
+              <p class="pl-4"><span class="text-sky-400">"openToWork"</span>: <span class="text-purple-400">true</span></p>
+              <p><span class="text-purple-400">}</span></p>
+            </div>
 
+            <!-- Tab 2: stack -->
+            <div id="tab-content-stack" class="terminal-pane hidden space-y-2 text-zinc-300">
+              <p class="text-zinc-500">// Stack architecture blueprint</p>
+              <p><span class="text-sky-400">const</span> <span class="text-amber-300">developerProfile</span> = {</p>
+              <p class="pl-4"><span class="text-teal-300">backend</span>: <span class="text-emerald-400">['Laravel MVC', 'PHP Native', 'Java Core', 'REST API']</span>,</p>
+              <p class="pl-4"><span class="text-teal-300">frontend</span>: <span class="text-emerald-400">['JavaScript ES6+', 'Blade', 'Tailwind CSS']</span>,</p>
+              <p class="pl-4"><span class="text-teal-300">mobile</span>: <span class="text-emerald-400">['Flutter Cross-Platform', 'Dart SDK']</span>,</p>
+              <p class="pl-4"><span class="text-teal-300">database</span>: <span class="text-emerald-400">['MySQL Relational Schemas']</span></p>
+              <p>};</p>
+            </div>
+
+            <!-- Tab 3: status -->
+            <div id="tab-content-status" class="terminal-pane hidden space-y-2 font-mono text-xs">
+              <p class="text-emerald-400">➜ ~/katiar-wadhi status --check</p>
+              <p class="text-zinc-400">[✔] System Kernel: Active (Jakarta, GMT+7)</p>
+              <p class="text-zinc-400">[✔] Backend Engine: PHP 8.3 &amp; Laravel Ready</p>
+              <p class="text-zinc-400">[✔] Database Connectivity: MySQL Operational</p>
+              <p class="text-zinc-400">[✔] Mobile SDK: Flutter &amp; Dart Ready</p>
+              <p class="text-emerald-400 font-bold">[READY] Open for new opportunities &amp; projects.</p>
+            </div>
+
+            <!-- Interactive Terminal Command Prompt -->
+            <div class="pt-3 border-t border-slate-700/80 dark:border-zinc-800/80 flex items-center justify-between">
+              <span data-i18n="term.prompt" class="text-zinc-400 text-xs">Run live environment check</span>
+              <button id="run-check-btn" type="button" class="px-3 py-1 rounded-lg bg-sky-500/20 text-sky-400 hover:bg-sky-500/30 text-xs font-semibold border border-sky-500/40 transition-all flex items-center gap-1.5">
+                <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+                <span data-i18n="term.runBtn">Run Check</span>
+              </button>
+            </div>
+
+            <div id="terminal-output" class="hidden text-xs p-2.5 rounded-lg bg-slate-950/90 dark:bg-zinc-900 border border-slate-700 dark:border-zinc-800 text-emerald-400 font-mono"></div>
+
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- 2. ABOUT ME SECTION (#about) -->
+  <section id="about" class="relative z-10 py-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+    
+    <!-- Section Header -->
+    <div class="text-center max-w-3xl mx-auto mb-14 scroll-reveal">
+      <h2 data-i18n="about.tag" class="text-xs font-mono font-bold tracking-widest text-sky-600 dark:text-sky-400 uppercase mb-2">01. ABOUT ME</h2>
+      <p data-i18n="about.heading" class="text-3xl sm:text-4xl font-extrabold tracking-tight text-slate-900 dark:text-white">
+        Engineered for Reliability &amp; Seamless Execution
+      </p>
+      <div class="w-16 h-1 bg-gradient-to-r from-sky-400 to-emerald-400 mx-auto mt-4 rounded-full"></div>
+    </div>
+
+    <!-- Bento Grid Layout -->
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-stretch">
+      
+      <!-- Bento Card 1: Portrait & Identity Card -->
+      <div class="lg:col-span-5 glass-panel rounded-3xl p-6 flex flex-col justify-between hover:border-sky-500/40 transition-all group bento-card shadow-lg scroll-reveal">
+        <div>
+          <div class="relative w-full h-72 sm:h-80 rounded-2xl overflow-hidden bg-gradient-to-br from-sky-500/15 via-slate-900 to-emerald-500/15 border border-slate-300/80 dark:border-zinc-800 mb-6 shadow-inner">
+            <img src="img/katiar.png" alt="Katiar Wadhi - Backend and Fullstack Developer"
+                 class="w-full h-full object-cover object-top transition-transform duration-500 group-hover:scale-105"
+                 onerror="this.style.display='none'; this.nextElementSibling.classList.remove('hidden');">
+            
+            <!-- Graceful Fallback -->
+            <div class="hidden w-full h-full flex flex-col items-center justify-center bg-gradient-to-br from-slate-900 via-sky-950/60 to-emerald-950/60 p-6 text-center">
+              <div class="w-24 h-24 rounded-2xl bg-gradient-to-br from-sky-400 to-emerald-500 flex items-center justify-center text-slate-950 font-extrabold text-3xl font-mono shadow-xl mb-3">
+                KW
+              </div>
+              <span class="text-xs font-mono text-sky-300">Katiar Wadhi</span>
+            </div>
+
+            <!-- Bottom Gradient Overlay & Badge -->
+            <div class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-slate-950/90 via-slate-950/50 to-transparent p-4 flex items-end justify-between">
+              <div>
+                <h3 class="text-xl font-bold text-white leading-tight">Katiar Wadhi</h3>
+                <p class="text-sky-400 font-mono text-xs">Backend &amp; Fullstack Developer</p>
+              </div>
+              <span class="px-2.5 py-1 rounded-lg bg-emerald-500/20 backdrop-blur-md border border-emerald-400/30 text-emerald-300 text-[11px] font-mono">
+                Jakarta, ID
+              </span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Quick Metadata Table -->
+        <div class="space-y-2.5 pt-3 border-t border-slate-200 dark:border-zinc-800 text-xs font-mono">
+          <div class="flex justify-between items-center">
+            <span data-i18n="about.eduLabel" class="text-slate-500 dark:text-zinc-500">Education</span>
+            <span data-i18n="about.eduVal" class="font-semibold text-slate-800 dark:text-zinc-200 text-right">Informatics Eng. — UNINDRA</span>
+          </div>
+          <div class="flex justify-between items-center">
+            <span data-i18n="about.focusLabel" class="text-slate-500 dark:text-zinc-500">Core Focus</span>
+            <span class="font-semibold text-emerald-600 dark:text-emerald-400">Laravel, PHP, Flutter &amp; Java</span>
+          </div>
+          <div class="flex justify-between items-center">
+            <span data-i18n="about.availLabel" class="text-slate-500 dark:text-zinc-500">Availability</span>
+            <span data-i18n="about.availVal" class="font-semibold text-sky-600 dark:text-sky-400">Open to Opportunities</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Bento Card 2: Main Bio & Engineering Pillars -->
+      <div class="lg:col-span-7 glass-panel rounded-3xl p-6 sm:p-8 flex flex-col justify-between hover:border-sky-500/40 transition-all bento-card shadow-lg scroll-reveal">
+        <div>
+          <div class="flex items-center gap-3 mb-5">
+            <span class="p-2.5 rounded-xl bg-sky-500/10 text-sky-600 dark:text-sky-400 border border-sky-500/25">
+              <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"/></svg>
+            </span>
+            <div>
+              <h3 data-i18n="about.cardTitle" class="text-xl sm:text-2xl font-bold text-slate-900 dark:text-white">About Me &amp; Engineering Approach</h3>
+              <p data-i18n="about.cardSub" class="text-xs font-mono text-slate-500 dark:text-zinc-400">Building scalable systems from database to UI</p>
+            </div>
+          </div>
+          
+          <p data-i18n="about.p1" class="text-slate-700 dark:text-zinc-300 text-base leading-relaxed mb-4">
+            Hello! I'm <strong class="text-slate-900 dark:text-white">Katiar Wadhi</strong>, a passionate Backend and Fullstack Developer specializing in building web and mobile applications that are efficient, scalable, and user-friendly.
+          </p>
+          <p data-i18n="about.p2" class="text-slate-600 dark:text-zinc-400 text-sm sm:text-base leading-relaxed mb-6">
+            I have hands-on experience with <strong class="text-sky-600 dark:text-sky-400 font-mono">Laravel, PHP, MySQL, Java, Flutter, and Dart</strong>, creating robust systems for web, mobile, and desktop platforms. I thrive in collaborative environments and enjoy solving complex problems with practical, maintainable solutions.
+          </p>
+
+          <!-- 3 Highlighted Pillars Sub-Cards -->
+          <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 my-6">
+            <div class="p-4 rounded-2xl bg-slate-100/90 dark:bg-zinc-900/70 border border-slate-200 dark:border-zinc-800">
+              <div class="text-sky-600 dark:text-sky-400 mb-1.5 font-bold font-mono text-xs">01 / WEB APP</div>
+              <h4 data-i18n="about.pillar1Title" class="font-bold text-sm text-slate-900 dark:text-white mb-1">End-to-End Web</h4>
+              <p data-i18n="about.pillar1Desc" class="text-xs text-slate-600 dark:text-zinc-400">Laravel MVC, REST APIs, relational MySQL schemas, and role-based auth.</p>
+            </div>
+
+            <div class="p-4 rounded-2xl bg-slate-100/90 dark:bg-zinc-900/70 border border-slate-200 dark:border-zinc-800">
+              <div class="text-emerald-600 dark:text-emerald-400 mb-1.5 font-bold font-mono text-xs">02 / MOBILE</div>
+              <h4 data-i18n="about.pillar2Title" class="font-bold text-sm text-slate-900 dark:text-white mb-1">Cross-Platform</h4>
+              <p data-i18n="about.pillar2Desc" class="text-xs text-slate-600 dark:text-zinc-400">Flutter &amp; Dart mobile apps connected seamlessly with backend APIs.</p>
+            </div>
+
+            <div class="p-4 rounded-2xl bg-slate-100/90 dark:bg-zinc-900/70 border border-slate-200 dark:border-zinc-800">
+              <div class="text-amber-600 dark:text-amber-400 mb-1.5 font-bold font-mono text-xs">03 / DESKTOP</div>
+              <h4 data-i18n="about.pillar3Title" class="font-bold text-sm text-slate-900 dark:text-white mb-1">Desktop &amp; POS</h4>
+              <p data-i18n="about.pillar3Desc" class="text-xs text-slate-600 dark:text-zinc-400">Java desktop software &amp; cashier POS inventory management systems.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="flex flex-wrap items-center justify-between gap-2 pt-4 border-t border-slate-200 dark:border-zinc-800">
+          <span data-i18n="about.footerStat" class="text-xs font-mono text-slate-500 dark:text-zinc-400">7+ Production-Ready Systems Built</span>
+          <a href="#skills" data-i18n="about.exploreSkills" class="text-xs font-mono font-semibold text-sky-600 dark:text-sky-400 hover:underline flex items-center gap-1">
+            Explore Tech Stack &rarr;
+          </a>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- 3. SKILLS & TECH STACK SECTION (#skills) -->
+  <section id="skills" class="relative z-10 py-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+    
+    <!-- Header -->
+    <div class="text-center max-w-3xl mx-auto mb-10 scroll-reveal">
+      <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-sky-500/10 border border-sky-500/25 text-sky-600 dark:text-sky-400 text-xs font-mono font-bold tracking-widest uppercase mb-3">
+        <span data-i18n="skills.tag">02. TECH STACK &amp; SKILLS</span>
+      </div>
+      <h2 data-i18n="skills.heading" class="text-3xl sm:text-4xl font-extrabold tracking-tight text-slate-900 dark:text-white">
+        Core Technologies I Command
+      </h2>
+      <p data-i18n="skills.sub" class="text-slate-600 dark:text-zinc-400 text-sm sm:text-base mt-3">
+        Filter by domain or click any technology card to jump directly to matching projects.
+      </p>
+      <div class="w-16 h-1 bg-gradient-to-r from-sky-400 to-emerald-400 mx-auto mt-4 rounded-full"></div>
+    </div>
+
+    <!-- Interactive Domain Filter Tabs for Skills -->
+    <div class="flex flex-wrap items-center justify-center gap-2 mb-10 scroll-reveal">
+      <button type="button" onclick="filterSkillGroup('all')" data-i18n="skills.tabAll" class="skill-group-btn px-4 py-2 rounded-xl text-xs sm:text-sm font-mono font-semibold transition-all bg-sky-500 text-slate-950 shadow-md" data-group="all">
+        All Stack (7)
+      </button>
+      <button type="button" onclick="filterSkillGroup('backend')" data-i18n="skills.tabBackend" class="skill-group-btn px-4 py-2 rounded-xl text-xs sm:text-sm font-mono font-semibold transition-all bg-slate-200/80 dark:bg-zinc-800/80 text-slate-700 dark:text-zinc-300 hover:bg-slate-300 dark:hover:bg-zinc-700" data-group="backend">
+        Backend &amp; DB (3)
+      </button>
+      <button type="button" onclick="filterSkillGroup('mobile-desktop')" data-i18n="skills.tabMobile" class="skill-group-btn px-4 py-2 rounded-xl text-xs sm:text-sm font-mono font-semibold transition-all bg-slate-200/80 dark:bg-zinc-800/80 text-slate-700 dark:text-zinc-300 hover:bg-slate-300 dark:hover:bg-zinc-700" data-group="mobile-desktop">
+        Mobile &amp; Desktop (3)
+      </button>
+      <button type="button" onclick="filterSkillGroup('frontend')" data-i18n="skills.tabFrontend" class="skill-group-btn px-4 py-2 rounded-xl text-xs sm:text-sm font-mono font-semibold transition-all bg-slate-200/80 dark:bg-zinc-800/80 text-slate-700 dark:text-zinc-300 hover:bg-slate-300 dark:hover:bg-zinc-700" data-group="frontend">
+        Frontend Web (1)
+      </button>
+    </div>
+
+    <!-- Interactive Skill Cards Grid -->
+    <div id="skills-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5">
+      
+      <!-- 1. Laravel -->
+      <div onclick="filterBySkill('Laravel')" data-skill="Laravel" data-group="backend" role="button" tabindex="0"
+           class="skill-card glass-panel rounded-3xl p-6 cursor-pointer relative overflow-hidden group hover:border-rose-500/60 hover:shadow-xl hover:shadow-rose-500/10 flex flex-col justify-between">
+        <div class="absolute -right-8 -top-8 w-28 h-28 rounded-full bg-rose-500/10 blur-2xl group-hover:bg-rose-500/20 transition-all pointer-events-none"></div>
+        
+        <div>
+          <div class="flex items-start justify-between gap-3 mb-4">
+            <div class="w-12 h-12 rounded-2xl bg-rose-500/15 border border-rose-500/30 flex items-center justify-center text-rose-500 group-hover:scale-110 transition-transform">
+              <svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M21 7.5l-9-5.25L3 7.5m18 0l-9 5.25m9-5.25v9l-9 5.25M3 7.5l9 5.25M3 7.5v9l9 5.25m0-9v9" />
+              </svg>
+            </div>
+            <span data-i18n="skills.badgePrimary" class="px-2.5 py-1 rounded-lg text-[10px] font-mono font-semibold bg-rose-500/10 text-rose-600 dark:text-rose-400 border border-rose-500/25">
+              Primary Stack
+            </span>
+          </div>
+
+          <h3 class="text-lg font-bold text-slate-900 dark:text-white group-hover:text-rose-500 transition-colors">Laravel</h3>
+          <p class="text-xs font-mono text-slate-500 dark:text-zinc-400 mt-0.5">MVC • Eloquent ORM • REST API</p>
+
+          <div class="mt-4">
+            <div class="flex justify-between text-[11px] font-mono mb-1.5">
+              <span data-i18n="skills.proficiency" class="text-slate-500 dark:text-zinc-400">Proficiency</span>
+              <span class="font-bold text-rose-500">95%</span>
+            </div>
+            <div class="w-full h-1.5 rounded-full bg-slate-200 dark:bg-zinc-800 overflow-hidden">
+              <div class="h-full rounded-full bg-gradient-to-r from-rose-500 to-orange-400" style="width: 95%"></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="mt-5 pt-3 border-t border-slate-200/80 dark:border-zinc-800 flex items-center justify-between text-xs font-mono">
+          <span class="text-slate-500 dark:text-zinc-400"><strong class="text-slate-800 dark:text-zinc-200">5</strong> <span data-i18n="skills.projectsPlural">Projects</span></span>
+          <span data-i18n="skills.filterCta" class="text-rose-500 font-semibold group-hover:translate-x-1 transition-transform">Filter &rarr;</span>
+        </div>
+      </div>
+
+      <!-- 2. PHP -->
+      <div onclick="filterBySkill('PHP')" data-skill="PHP" data-group="backend" role="button" tabindex="0"
+           class="skill-card glass-panel rounded-3xl p-6 cursor-pointer relative overflow-hidden group hover:border-indigo-500/60 hover:shadow-xl hover:shadow-indigo-500/10 flex flex-col justify-between">
+        <div class="absolute -right-8 -top-8 w-28 h-28 rounded-full bg-indigo-500/10 blur-2xl group-hover:bg-indigo-500/20 transition-all pointer-events-none"></div>
+        
+        <div>
+          <div class="flex items-start justify-between gap-3 mb-4">
+            <div class="w-12 h-12 rounded-2xl bg-indigo-500/15 border border-indigo-500/30 flex items-center justify-center text-indigo-500 dark:text-indigo-400 group-hover:scale-110 transition-transform">
+              <span class="font-mono font-extrabold text-sm tracking-tighter">&lt;?php</span>
+            </div>
+            <span data-i18n="skills.badgeBackend" class="px-2.5 py-1 rounded-lg text-[10px] font-mono font-semibold bg-indigo-500/10 text-indigo-600 dark:text-indigo-400 border border-indigo-500/25">
+              Backend Core
+            </span>
+          </div>
+
+          <h3 class="text-lg font-bold text-slate-900 dark:text-white group-hover:text-indigo-400 transition-colors">PHP 8+</h3>
+          <p class="text-xs font-mono text-slate-500 dark:text-zinc-400 mt-0.5">OOP • Auth • Server Logic</p>
+
+          <div class="mt-4">
+            <div class="flex justify-between text-[11px] font-mono mb-1.5">
+              <span data-i18n="skills.proficiency" class="text-slate-500 dark:text-zinc-400">Proficiency</span>
+              <span class="font-bold text-indigo-500 dark:text-indigo-400">92%</span>
+            </div>
+            <div class="w-full h-1.5 rounded-full bg-slate-200 dark:bg-zinc-800 overflow-hidden">
+              <div class="h-full rounded-full bg-gradient-to-r from-indigo-500 to-purple-400" style="width: 92%"></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="mt-5 pt-3 border-t border-slate-200/80 dark:border-zinc-800 flex items-center justify-between text-xs font-mono">
+          <span class="text-slate-500 dark:text-zinc-400"><strong class="text-slate-800 dark:text-zinc-200">5</strong> <span data-i18n="skills.projectsPlural">Projects</span></span>
+          <span data-i18n="skills.filterCta" class="text-indigo-500 dark:text-indigo-400 font-semibold group-hover:translate-x-1 transition-transform">Filter &rarr;</span>
+        </div>
+      </div>
+
+      <!-- 3. MySQL -->
+      <div onclick="filterBySkill('MySQL')" data-skill="MySQL" data-group="backend" role="button" tabindex="0"
+           class="skill-card glass-panel rounded-3xl p-6 cursor-pointer relative overflow-hidden group hover:border-emerald-500/60 hover:shadow-xl hover:shadow-emerald-500/10 flex flex-col justify-between">
+        <div class="absolute -right-8 -top-8 w-28 h-28 rounded-full bg-emerald-500/10 blur-2xl group-hover:bg-emerald-500/20 transition-all pointer-events-none"></div>
+        
+        <div>
+          <div class="flex items-start justify-between gap-3 mb-4">
+            <div class="w-12 h-12 rounded-2xl bg-emerald-500/15 border border-emerald-500/30 flex items-center justify-center text-emerald-500 dark:text-emerald-400 group-hover:scale-110 transition-transform">
+              <svg class="w-6 h-6" viewBox="0 0 24 24" fill="currentColor"><path d="M12 3C6.48 3 2 5.24 2 8v8c0 2.76 4.48 5 10 5s10-2.24 10-5V8c0-2.76-4.48-5-10-5zm0 2c4.42 0 8 1.5 8 3s-3.58 3-8 3-8-1.5-8-3 3.58-3 8-3zm0 14c-4.42 0-8-1.5-8-3v-2.5c1.8 1.25 4.73 2 8 2s6.2-.75 8-2V16c0 1.5-3.58 3-8 3z"/></svg>
+            </div>
+            <span data-i18n="skills.badgeDb" class="px-2.5 py-1 rounded-lg text-[10px] font-mono font-semibold bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 border border-emerald-500/25">
+              Relational DB
+            </span>
+          </div>
+
+          <h3 class="text-lg font-bold text-slate-900 dark:text-white group-hover:text-emerald-400 transition-colors">MySQL</h3>
+          <p class="text-xs font-mono text-slate-500 dark:text-zinc-400 mt-0.5">Schema Design • Indexing • Queries</p>
+
+          <div class="mt-4">
+            <div class="flex justify-between text-[11px] font-mono mb-1.5">
+              <span data-i18n="skills.proficiency" class="text-slate-500 dark:text-zinc-400">Proficiency</span>
+              <span class="font-bold text-emerald-500 dark:text-emerald-400">94%</span>
+            </div>
+            <div class="w-full h-1.5 rounded-full bg-slate-200 dark:bg-zinc-800 overflow-hidden">
+              <div class="h-full rounded-full bg-gradient-to-r from-emerald-500 to-teal-400" style="width: 94%"></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="mt-5 pt-3 border-t border-slate-200/80 dark:border-zinc-800 flex items-center justify-between text-xs font-mono">
+          <span class="text-slate-500 dark:text-zinc-400"><strong class="text-slate-800 dark:text-zinc-200">7</strong> <span data-i18n="skills.projectsPlural">Projects</span></span>
+          <span data-i18n="skills.filterCta" class="text-emerald-500 dark:text-emerald-400 font-semibold group-hover:translate-x-1 transition-transform">Filter &rarr;</span>
+        </div>
+      </div>
+
+      <!-- 4. Flutter -->
+      <div onclick="filterBySkill('Flutter')" data-skill="Flutter" data-group="mobile-desktop" role="button" tabindex="0"
+           class="skill-card glass-panel rounded-3xl p-6 cursor-pointer relative overflow-hidden group hover:border-cyan-500/60 hover:shadow-xl hover:shadow-cyan-500/10 flex flex-col justify-between">
+        <div class="absolute -right-8 -top-8 w-28 h-28 rounded-full bg-cyan-500/10 blur-2xl group-hover:bg-cyan-500/20 transition-all pointer-events-none"></div>
+        
+        <div>
+          <div class="flex items-start justify-between gap-3 mb-4">
+            <div class="w-12 h-12 rounded-2xl bg-cyan-500/15 border border-cyan-500/30 flex items-center justify-center text-cyan-500 dark:text-cyan-400 group-hover:scale-110 transition-transform">
+              <svg class="w-6 h-6" viewBox="0 0 24 24" fill="currentColor"><path d="M14.314 0L2.3 12 6 15.7 21.684.013h-7.357L14.314 0zm.014 11.072L7.857 17.53l6.47 6.47H21.7l-6.46-6.468 6.46-6.46h-7.37z"/></svg>
+            </div>
+            <span data-i18n="skills.badgeCross" class="px-2.5 py-1 rounded-lg text-[10px] font-mono font-semibold bg-cyan-500/10 text-cyan-600 dark:text-cyan-400 border border-cyan-500/25">
+              Cross-Platform
+            </span>
+          </div>
+
+          <h3 class="text-lg font-bold text-slate-900 dark:text-white group-hover:text-cyan-400 transition-colors">Flutter</h3>
+          <p class="text-xs font-mono text-slate-500 dark:text-zinc-400 mt-0.5">Android &amp; iOS • REST Integration</p>
+
+          <div class="mt-4">
+            <div class="flex justify-between text-[11px] font-mono mb-1.5">
+              <span data-i18n="skills.proficiency" class="text-slate-500 dark:text-zinc-400">Proficiency</span>
+              <span class="font-bold text-cyan-500 dark:text-cyan-400">88%</span>
+            </div>
+            <div class="w-full h-1.5 rounded-full bg-slate-200 dark:bg-zinc-800 overflow-hidden">
+              <div class="h-full rounded-full bg-gradient-to-r from-cyan-500 to-sky-400" style="width: 88%"></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="mt-5 pt-3 border-t border-slate-200/80 dark:border-zinc-800 flex items-center justify-between text-xs font-mono">
+          <span class="text-slate-500 dark:text-zinc-400"><strong class="text-slate-800 dark:text-zinc-200">1</strong> <span data-i18n="skills.projectSingular">Project</span></span>
+          <span data-i18n="skills.filterCta" class="text-cyan-500 dark:text-cyan-400 font-semibold group-hover:translate-x-1 transition-transform">Filter &rarr;</span>
+        </div>
+      </div>
+
+      <!-- 5. Dart -->
+      <div onclick="filterBySkill('Dart')" data-skill="Dart" data-group="mobile-desktop" role="button" tabindex="0"
+           class="skill-card glass-panel rounded-3xl p-6 cursor-pointer relative overflow-hidden group hover:border-sky-500/60 hover:shadow-xl hover:shadow-sky-500/10 flex flex-col justify-between">
+        <div class="absolute -right-8 -top-8 w-28 h-28 rounded-full bg-sky-500/10 blur-2xl group-hover:bg-sky-500/20 transition-all pointer-events-none"></div>
+        
+        <div>
+          <div class="flex items-start justify-between gap-3 mb-4">
+            <div class="w-12 h-12 rounded-2xl bg-sky-500/15 border border-sky-500/30 flex items-center justify-center text-sky-500 dark:text-sky-400 group-hover:scale-110 transition-transform">
+              <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
+            </div>
+            <span class="px-2.5 py-1 rounded-lg text-[10px] font-mono font-semibold bg-sky-500/10 text-sky-600 dark:text-sky-400 border border-sky-500/25">
+              Mobile SDK
+            </span>
+          </div>
+
+          <h3 class="text-lg font-bold text-slate-900 dark:text-white group-hover:text-sky-400 transition-colors">Dart</h3>
+          <p class="text-xs font-mono text-slate-500 dark:text-zinc-400 mt-0.5">Async/Await • State • Clean Models</p>
+
+          <div class="mt-4">
+            <div class="flex justify-between text-[11px] font-mono mb-1.5">
+              <span data-i18n="skills.proficiency" class="text-slate-500 dark:text-zinc-400">Proficiency</span>
+              <span class="font-bold text-sky-500 dark:text-sky-400">86%</span>
+            </div>
+            <div class="w-full h-1.5 rounded-full bg-slate-200 dark:bg-zinc-800 overflow-hidden">
+              <div class="h-full rounded-full bg-gradient-to-r from-sky-500 to-blue-400" style="width: 86%"></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="mt-5 pt-3 border-t border-slate-200/80 dark:border-zinc-800 flex items-center justify-between text-xs font-mono">
+          <span class="text-slate-500 dark:text-zinc-400"><strong class="text-slate-800 dark:text-zinc-200">1</strong> <span data-i18n="skills.projectSingular">Project</span></span>
+          <span data-i18n="skills.filterCta" class="text-sky-500 dark:text-sky-400 font-semibold group-hover:translate-x-1 transition-transform">Filter &rarr;</span>
+        </div>
+      </div>
+
+      <!-- 6. Java -->
+      <div onclick="filterBySkill('Java')" data-skill="Java" data-group="mobile-desktop" role="button" tabindex="0"
+           class="skill-card glass-panel rounded-3xl p-6 cursor-pointer relative overflow-hidden group hover:border-amber-500/60 hover:shadow-xl hover:shadow-amber-500/10 flex flex-col justify-between">
+        <div class="absolute -right-8 -top-8 w-28 h-28 rounded-full bg-amber-500/10 blur-2xl group-hover:bg-amber-500/20 transition-all pointer-events-none"></div>
+        
+        <div>
+          <div class="flex items-start justify-between gap-3 mb-4">
+            <div class="w-12 h-12 rounded-2xl bg-amber-500/15 border border-amber-500/30 flex items-center justify-center text-amber-500 group-hover:scale-110 transition-transform">
+              <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+            </div>
+            <span class="px-2.5 py-1 rounded-lg text-[10px] font-mono font-semibold bg-amber-500/10 text-amber-600 dark:text-amber-400 border border-amber-500/25">
+              Desktop &amp; OOP
+            </span>
+          </div>
+
+          <h3 class="text-lg font-bold text-slate-900 dark:text-white group-hover:text-amber-400 transition-colors">Java</h3>
+          <p class="text-xs font-mono text-slate-500 dark:text-zinc-400 mt-0.5">Desktop GUI • JDBC • OOP Principles</p>
+
+          <div class="mt-4">
+            <div class="flex justify-between text-[11px] font-mono mb-1.5">
+              <span data-i18n="skills.proficiency" class="text-slate-500 dark:text-zinc-400">Proficiency</span>
+              <span class="font-bold text-amber-500">85%</span>
+            </div>
+            <div class="w-full h-1.5 rounded-full bg-slate-200 dark:bg-zinc-800 overflow-hidden">
+              <div class="h-full rounded-full bg-gradient-to-r from-amber-500 to-orange-500" style="width: 85%"></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="mt-5 pt-3 border-t border-slate-200/80 dark:border-zinc-800 flex items-center justify-between text-xs font-mono">
+          <span class="text-slate-500 dark:text-zinc-400"><strong class="text-slate-800 dark:text-zinc-200">1</strong> <span data-i18n="skills.projectSingular">Project</span></span>
+          <span data-i18n="skills.filterCta" class="text-amber-500 font-semibold group-hover:translate-x-1 transition-transform">Filter &rarr;</span>
+        </div>
+      </div>
+
+      <!-- 7. JavaScript -->
+      <div onclick="filterBySkill('JavaScript')" data-skill="JavaScript" data-group="frontend" role="button" tabindex="0"
+           class="skill-card glass-panel rounded-3xl p-6 cursor-pointer relative overflow-hidden group hover:border-yellow-500/60 hover:shadow-xl hover:shadow-yellow-500/10 flex flex-col justify-between">
+        <div class="absolute -right-8 -top-8 w-28 h-28 rounded-full bg-yellow-500/10 blur-2xl group-hover:bg-yellow-500/20 transition-all pointer-events-none"></div>
+        
+        <div>
+          <div class="flex items-start justify-between gap-3 mb-4">
+            <div class="w-12 h-12 rounded-2xl bg-yellow-500/15 border border-yellow-500/30 flex items-center justify-center text-yellow-500 dark:text-yellow-400 group-hover:scale-110 transition-transform">
+              <span class="font-mono font-extrabold text-sm">JS</span>
+            </div>
+            <span class="px-2.5 py-1 rounded-lg text-[10px] font-mono font-semibold bg-yellow-500/10 text-yellow-600 dark:text-yellow-400 border border-yellow-500/25">
+              Frontend Web
+            </span>
+          </div>
+
+          <h3 class="text-lg font-bold text-slate-900 dark:text-white group-hover:text-yellow-400 transition-colors">JavaScript</h3>
+          <p class="text-xs font-mono text-slate-500 dark:text-zinc-400 mt-0.5">ES6+ • Fetch API • DOM &amp; UI Logic</p>
+
+          <div class="mt-4">
+            <div class="flex justify-between text-[11px] font-mono mb-1.5">
+              <span data-i18n="skills.proficiency" class="text-slate-500 dark:text-zinc-400">Proficiency</span>
+              <span class="font-bold text-yellow-500 dark:text-yellow-400">90%</span>
+            </div>
+            <div class="w-full h-1.5 rounded-full bg-slate-200 dark:bg-zinc-800 overflow-hidden">
+              <div class="h-full rounded-full bg-gradient-to-r from-yellow-500 to-amber-400" style="width: 90%"></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="mt-5 pt-3 border-t border-slate-200/80 dark:border-zinc-800 flex items-center justify-between text-xs font-mono">
+          <span class="text-slate-500 dark:text-zinc-400"><strong class="text-slate-800 dark:text-zinc-200">5</strong> <span data-i18n="skills.projectsPlural">Projects</span></span>
+          <span data-i18n="skills.filterCta" class="text-yellow-500 dark:text-yellow-400 font-semibold group-hover:translate-x-1 transition-transform">Filter &rarr;</span>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- 4. FEATURED PROJECTS SECTION (#projects) -->
+  <section id="projects" class="relative z-10 py-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+    
+    <!-- Section Header -->
+    <div class="text-center max-w-3xl mx-auto mb-10 scroll-reveal">
+      <h2 data-i18n="projects.tag" class="text-xs font-mono font-bold tracking-widest text-sky-600 dark:text-sky-400 uppercase mb-2">03. PORTFOLIO &amp; SYSTEMS</h2>
+      <p data-i18n="projects.heading" class="text-3xl sm:text-4xl font-extrabold tracking-tight text-slate-900 dark:text-white">
+        Featured Real-World Applications
+      </p>
+      <div class="w-16 h-1 bg-gradient-to-r from-sky-400 to-emerald-400 mx-auto mt-4 rounded-full"></div>
+    </div>
+
+    <!-- Skill Filter Active Banner -->
+    <div id="active-skill-banner" class="hidden mb-6 flex items-center justify-between px-5 py-3 rounded-2xl bg-sky-500/15 border border-sky-500/35 text-sky-800 dark:text-sky-300 text-sm font-mono max-w-2xl mx-auto">
+      <span><span data-i18n="projects.filteredBy">Filtered by tech stack:</span> <strong id="skill-filter-name" class="text-slate-900 dark:text-white font-bold"></strong></span>
+      <button type="button" onclick="clearSkillFilter()" data-i18n="projects.clearFilter" class="text-xs bg-sky-500 text-slate-950 font-bold hover:bg-sky-400 px-3 py-1 rounded-lg transition-all">
+        Clear Filter ✕
+      </button>
+    </div>
+
+    <!-- Category Filter Tabs -->
+    <div class="flex flex-wrap items-center justify-center gap-2 mb-12 scroll-reveal">
+      <button type="button" onclick="filterCategory('all')" data-i18n="projects.tabAll" class="cat-btn px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold transition-all bg-sky-500 text-slate-950 shadow-md" data-category="all">
+        All Projects (7)
+      </button>
+      <button type="button" onclick="filterCategory('web')" data-i18n="projects.tabWeb" class="cat-btn px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold transition-all bg-slate-200/80 dark:bg-zinc-800/80 text-slate-700 dark:text-zinc-300 hover:bg-slate-300 dark:hover:bg-zinc-700" data-category="web">
+        Web App (5)
+      </button>
+      <button type="button" onclick="filterCategory('mobile')" data-i18n="projects.tabMobile" class="cat-btn px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold transition-all bg-slate-200/80 dark:bg-zinc-800/80 text-slate-700 dark:text-zinc-300 hover:bg-slate-300 dark:hover:bg-zinc-700" data-category="mobile">
+        Mobile App (1)
+      </button>
+      <button type="button" onclick="filterCategory('desktop')" data-i18n="projects.tabDesktop" class="cat-btn px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold transition-all bg-slate-200/80 dark:bg-zinc-800/80 text-slate-700 dark:text-zinc-300 hover:bg-slate-300 dark:hover:bg-zinc-700" data-category="desktop">
+        Desktop App (1)
+      </button>
+    </div>
+
+    <!-- Projects Grid (All 7 Items) -->
+    <div id="projects-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      
+      <!-- Project 1: E-Commerce Web Application -->
+      <article class="project-card glass-panel rounded-3xl overflow-hidden hover:border-sky-500/40 hover:-translate-y-1 transition-all flex flex-col justify-between group shadow-md" data-category="web" data-tech="Laravel,PHP,MySQL,JavaScript">
+        <div>
+          <div class="h-44 bg-gradient-to-br from-slate-900 via-sky-950 to-zinc-900 p-6 flex flex-col justify-between relative overflow-hidden">
+            <div class="absolute right-3 top-3 opacity-15 text-6xl font-mono font-black text-sky-400 select-none">01</div>
+            <span data-i18n="projects.badgeWeb" class="inline-block px-3 py-1 rounded-full text-xs font-mono font-semibold bg-sky-500/20 text-sky-300 border border-sky-500/30 w-max">
+              Web App
+            </span>
+            <div>
+              <span class="text-xs font-mono text-zinc-400">&lt;Laravel E-Commerce/&gt;</span>
+              <h3 data-i18n="proj.p1Title" class="text-xl font-bold text-white mt-1 group-hover:text-sky-300 transition-colors">E-Commerce Web Application</h3>
+            </div>
+          </div>
+          <div class="p-6">
+            <p data-i18n="proj.p1Desc" class="text-slate-600 dark:text-zinc-400 text-sm leading-relaxed mb-4">
+              Web-based e-commerce application featuring product management, shopping cart, checkout process, and payment gateway integration.
+            </p>
+            <div class="flex flex-wrap gap-1.5 mb-2">
+              <span class="px-2.5 py-0.5 rounded-md text-xs font-mono bg-slate-200/80 dark:bg-zinc-800 text-slate-800 dark:text-zinc-300">Laravel</span>
+              <span class="px-2.5 py-0.5 rounded-md text-xs font-mono bg-slate-200/80 dark:bg-zinc-800 text-slate-800 dark:text-zinc-300">PHP</span>
+              <span class="px-2.5 py-0.5 rounded-md text-xs font-mono bg-slate-200/80 dark:bg-zinc-800 text-slate-800 dark:text-zinc-300">MySQL</span>
+              <span class="px-2.5 py-0.5 rounded-md text-xs font-mono bg-slate-200/80 dark:bg-zinc-800 text-slate-800 dark:text-zinc-300">JavaScript</span>
+            </div>
+          </div>
+        </div>
+        <div class="px-6 pb-6 pt-0">
+          <button type="button" onclick="openModal('e-commerce-web')" class="w-full py-2.5 rounded-xl bg-slate-200/80 dark:bg-zinc-800/90 hover:bg-sky-500 dark:hover:bg-sky-500 hover:text-slate-950 dark:hover:text-slate-950 text-slate-800 dark:text-zinc-200 text-xs font-bold font-mono transition-all flex items-center justify-center gap-2">
+            <span data-i18n="projects.detailsBtn">Project Details</span>
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+          </button>
+        </div>
+      </article>
+
+      <!-- Project 2: Library Management System -->
+      <article class="project-card glass-panel rounded-3xl overflow-hidden hover:border-emerald-500/40 hover:-translate-y-1 transition-all flex flex-col justify-between group shadow-md" data-category="web" data-tech="Laravel,PHP,JavaScript,MySQL">
+        <div>
+          <div class="h-44 bg-gradient-to-br from-slate-900 via-emerald-950 to-zinc-900 p-6 flex flex-col justify-between relative overflow-hidden">
+            <div class="absolute right-3 top-3 opacity-15 text-6xl font-mono font-black text-emerald-400 select-none">02</div>
+            <span data-i18n="projects.badgeWeb" class="inline-block px-3 py-1 rounded-full text-xs font-mono font-semibold bg-emerald-500/20 text-emerald-300 border border-emerald-500/30 w-max">
+              Web App
+            </span>
+            <div>
+              <span class="text-xs font-mono text-zinc-400">&lt;Library System/&gt;</span>
+              <h3 data-i18n="proj.p2Title" class="text-xl font-bold text-white mt-1 group-hover:text-emerald-300 transition-colors">Library Management System</h3>
+            </div>
+          </div>
+          <div class="p-6">
+            <p data-i18n="proj.p2Desc" class="text-slate-600 dark:text-zinc-400 text-sm leading-relaxed mb-4">
+              A web-based library system for managing books, categories, borrowing, returns, and user authentication with role-based access.
+            </p>
+            <div class="flex flex-wrap gap-1.5 mb-2">
+              <span class="px-2.5 py-0.5 rounded-md text-xs font-mono bg-slate-200/80 dark:bg-zinc-800 text-slate-800 dark:text-zinc-300">Laravel</span>
+              <span class="px-2.5 py-0.5 rounded-md text-xs font-mono bg-slate-200/80 dark:bg-zinc-800 text-slate-800 dark:text-zinc-300">PHP</span>
+              <span class="px-2.5 py-0.5 rounded-md text-xs font-mono bg-slate-200/80 dark:bg-zinc-800 text-slate-800 dark:text-zinc-300">MySQL</span>
+              <span class="px-2.5 py-0.5 rounded-md text-xs font-mono bg-slate-200/80 dark:bg-zinc-800 text-slate-800 dark:text-zinc-300">JavaScript</span>
+            </div>
+          </div>
+        </div>
+        <div class="px-6 pb-6 pt-0">
+          <button type="button" onclick="openModal('library-system')" class="w-full py-2.5 rounded-xl bg-slate-200/80 dark:bg-zinc-800/90 hover:bg-emerald-500 dark:hover:bg-emerald-500 hover:text-slate-950 dark:hover:text-slate-950 text-slate-800 dark:text-zinc-200 text-xs font-bold font-mono transition-all flex items-center justify-center gap-2">
+            <span data-i18n="projects.detailsBtn">Project Details</span>
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+          </button>
+        </div>
+      </article>
+
+      <!-- Project 3: Class Management Website -->
+      <article class="project-card glass-panel rounded-3xl overflow-hidden hover:border-teal-500/40 hover:-translate-y-1 transition-all flex flex-col justify-between group shadow-md" data-category="web" data-tech="Laravel,PHP,JavaScript,MySQL">
+        <div>
+          <div class="h-44 bg-gradient-to-br from-slate-900 via-teal-950 to-zinc-900 p-6 flex flex-col justify-between relative overflow-hidden">
+            <div class="absolute right-3 top-3 opacity-15 text-6xl font-mono font-black text-teal-400 select-none">03</div>
+            <span data-i18n="projects.badgeWeb" class="inline-block px-3 py-1 rounded-full text-xs font-mono font-semibold bg-teal-500/20 text-teal-300 border border-teal-500/30 w-max">
+              Web App
+            </span>
+            <div>
+              <span class="text-xs font-mono text-zinc-400">&lt;Academic Portal/&gt;</span>
+              <h3 data-i18n="proj.p3Title" class="text-xl font-bold text-white mt-1 group-hover:text-teal-300 transition-colors">Class Management Website</h3>
+            </div>
+          </div>
+          <div class="p-6">
+            <p data-i18n="proj.p3Desc" class="text-slate-600 dark:text-zinc-400 text-sm leading-relaxed mb-4">
+              A web application to manage classes, students, schedules, and attendance with a clean and responsive interface.
+            </p>
+            <div class="flex flex-wrap gap-1.5 mb-2">
+              <span class="px-2.5 py-0.5 rounded-md text-xs font-mono bg-slate-200/80 dark:bg-zinc-800 text-slate-800 dark:text-zinc-300">Laravel</span>
+              <span class="px-2.5 py-0.5 rounded-md text-xs font-mono bg-slate-200/80 dark:bg-zinc-800 text-slate-800 dark:text-zinc-300">PHP</span>
+              <span class="px-2.5 py-0.5 rounded-md text-xs font-mono bg-slate-200/80 dark:bg-zinc-800 text-slate-800 dark:text-zinc-300">MySQL</span>
+              <span class="px-2.5 py-0.5 rounded-md text-xs font-mono bg-slate-200/80 dark:bg-zinc-800 text-slate-800 dark:text-zinc-300">JavaScript</span>
+            </div>
+          </div>
+        </div>
+        <div class="px-6 pb-6 pt-0">
+          <button type="button" onclick="openModal('class-management')" class="w-full py-2.5 rounded-xl bg-slate-200/80 dark:bg-zinc-800/90 hover:bg-teal-400 dark:hover:bg-teal-400 hover:text-slate-950 dark:hover:text-slate-950 text-slate-800 dark:text-zinc-200 text-xs font-bold font-mono transition-all flex items-center justify-center gap-2">
+            <span data-i18n="projects.detailsBtn">Project Details</span>
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+          </button>
+        </div>
+      </article>
+
+      <!-- Project 4: Point of Sale (POS) Web Application -->
+      <article class="project-card glass-panel rounded-3xl overflow-hidden hover:border-amber-500/40 hover:-translate-y-1 transition-all flex flex-col justify-between group shadow-md" data-category="web" data-tech="Laravel,PHP,JavaScript,MySQL">
+        <div>
+          <div class="h-44 bg-gradient-to-br from-slate-900 via-amber-950 to-zinc-900 p-6 flex flex-col justify-between relative overflow-hidden">
+            <div class="absolute right-3 top-3 opacity-15 text-6xl font-mono font-black text-amber-400 select-none">04</div>
+            <span data-i18n="projects.badgeWeb" class="inline-block px-3 py-1 rounded-full text-xs font-mono font-semibold bg-amber-500/20 text-amber-300 border border-amber-500/30 w-max">
+              Web App
+            </span>
+            <div>
+              <span class="text-xs font-mono text-zinc-400">&lt;POS &amp; Inventory/&gt;</span>
+              <h3 data-i18n="proj.p4Title" class="text-xl font-bold text-white mt-1 group-hover:text-amber-300 transition-colors">Point of Sale (POS) Web App</h3>
+            </div>
+          </div>
+          <div class="p-6">
+            <p data-i18n="proj.p4Desc" class="text-slate-600 dark:text-zinc-400 text-sm leading-relaxed mb-4">
+              A web-based cashier system for handling sales transactions, product management, payment processing, and daily sales reports.
+            </p>
+            <div class="flex flex-wrap gap-1.5 mb-2">
+              <span class="px-2.5 py-0.5 rounded-md text-xs font-mono bg-slate-200/80 dark:bg-zinc-800 text-slate-800 dark:text-zinc-300">Laravel</span>
+              <span class="px-2.5 py-0.5 rounded-md text-xs font-mono bg-slate-200/80 dark:bg-zinc-800 text-slate-800 dark:text-zinc-300">PHP</span>
+              <span class="px-2.5 py-0.5 rounded-md text-xs font-mono bg-slate-200/80 dark:bg-zinc-800 text-slate-800 dark:text-zinc-300">MySQL</span>
+              <span class="px-2.5 py-0.5 rounded-md text-xs font-mono bg-slate-200/80 dark:bg-zinc-800 text-slate-800 dark:text-zinc-300">JavaScript</span>
+            </div>
+          </div>
+        </div>
+        <div class="px-6 pb-6 pt-0">
+          <button type="button" onclick="openModal('pos-system')" class="w-full py-2.5 rounded-xl bg-slate-200/80 dark:bg-zinc-800/90 hover:bg-amber-400 dark:hover:bg-amber-400 hover:text-slate-950 dark:hover:text-slate-950 text-slate-800 dark:text-zinc-200 text-xs font-bold font-mono transition-all flex items-center justify-center gap-2">
+            <span data-i18n="projects.detailsBtn">Project Details</span>
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+          </button>
+        </div>
+      </article>
+
+      <!-- Project 5: Laundry Management System -->
+      <article class="project-card glass-panel rounded-3xl overflow-hidden hover:border-indigo-500/40 hover:-translate-y-1 transition-all flex flex-col justify-between group shadow-md" data-category="web" data-tech="PHP,JavaScript,MySQL">
+        <div>
+          <div class="h-44 bg-gradient-to-br from-slate-900 via-indigo-950 to-zinc-900 p-6 flex flex-col justify-between relative overflow-hidden">
+            <div class="absolute right-3 top-3 opacity-15 text-6xl font-mono font-black text-indigo-400 select-none">05</div>
+            <span data-i18n="projects.badgeWeb" class="inline-block px-3 py-1 rounded-full text-xs font-mono font-semibold bg-indigo-500/20 text-indigo-300 border border-indigo-500/30 w-max">
+              Web App
+            </span>
+            <div>
+              <span class="text-xs font-mono text-zinc-400">&lt;Service Portal/&gt;</span>
+              <h3 data-i18n="proj.p5Title" class="text-xl font-bold text-white mt-1 group-hover:text-indigo-300 transition-colors">Laundry Management System</h3>
+            </div>
+          </div>
+          <div class="p-6">
+            <p data-i18n="proj.p5Desc" class="text-slate-600 dark:text-zinc-400 text-sm leading-relaxed mb-4">
+              A web application for managing laundry orders, customer data, service types, pricing, and order status tracking.
+            </p>
+            <div class="flex flex-wrap gap-1.5 mb-2">
+              <span class="px-2.5 py-0.5 rounded-md text-xs font-mono bg-slate-200/80 dark:bg-zinc-800 text-slate-800 dark:text-zinc-300">PHP</span>
+              <span class="px-2.5 py-0.5 rounded-md text-xs font-mono bg-slate-200/80 dark:bg-zinc-800 text-slate-800 dark:text-zinc-300">JavaScript</span>
+              <span class="px-2.5 py-0.5 rounded-md text-xs font-mono bg-slate-200/80 dark:bg-zinc-800 text-slate-800 dark:text-zinc-300">MySQL</span>
+            </div>
+          </div>
+        </div>
+        <div class="px-6 pb-6 pt-0">
+          <button type="button" onclick="openModal('laundry-system')" class="w-full py-2.5 rounded-xl bg-slate-200/80 dark:bg-zinc-800/90 hover:bg-indigo-400 dark:hover:bg-indigo-400 hover:text-slate-950 dark:hover:text-slate-950 text-slate-800 dark:text-zinc-200 text-xs font-bold font-mono transition-all flex items-center justify-center gap-2">
+            <span data-i18n="projects.detailsBtn">Project Details</span>
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+          </button>
+        </div>
+      </article>
+
+      <!-- Project 6: E-Commerce Mobile App -->
+      <article class="project-card glass-panel rounded-3xl overflow-hidden hover:border-sky-500/40 hover:-translate-y-1 transition-all flex flex-col justify-between group shadow-md" data-category="mobile" data-tech="Flutter,Dart,REST API,Laravel,MySQL">
+        <div>
+          <div class="h-44 bg-gradient-to-br from-slate-900 via-sky-950 to-emerald-950 p-6 flex flex-col justify-between relative overflow-hidden">
+            <div class="absolute right-3 top-3 opacity-15 text-6xl font-mono font-black text-sky-400 select-none">06</div>
+            <span data-i18n="projects.badgeMobile" class="inline-block px-3 py-1 rounded-full text-xs font-mono font-semibold bg-sky-500/20 text-sky-300 border border-sky-500/30 w-max">
+              Mobile App
+            </span>
+            <div>
+              <span class="text-xs font-mono text-zinc-400">&lt;Flutter Cross-Platform/&gt;</span>
+              <h3 data-i18n="proj.p6Title" class="text-xl font-bold text-white mt-1 group-hover:text-sky-300 transition-colors">E-Commerce Mobile App</h3>
+            </div>
+          </div>
+          <div class="p-6">
+            <p data-i18n="proj.p6Desc" class="text-slate-600 dark:text-zinc-400 text-sm leading-relaxed mb-4">
+              Mobile e-commerce application allowing users to browse products, manage shopping carts, place orders, and track purchases seamlessly.
+            </p>
+            <div class="flex flex-wrap gap-1.5 mb-2">
+              <span class="px-2.5 py-0.5 rounded-md text-xs font-mono bg-slate-200/80 dark:bg-zinc-800 text-slate-800 dark:text-zinc-300">Flutter</span>
+              <span class="px-2.5 py-0.5 rounded-md text-xs font-mono bg-slate-200/80 dark:bg-zinc-800 text-slate-800 dark:text-zinc-300">Dart</span>
+              <span class="px-2.5 py-0.5 rounded-md text-xs font-mono bg-slate-200/80 dark:bg-zinc-800 text-slate-800 dark:text-zinc-300">REST API</span>
+              <span class="px-2.5 py-0.5 rounded-md text-xs font-mono bg-slate-200/80 dark:bg-zinc-800 text-slate-800 dark:text-zinc-300">Laravel</span>
+            </div>
+          </div>
+        </div>
+        <div class="px-6 pb-6 pt-0">
+          <button type="button" onclick="openModal('flutter-ecommerce')" class="w-full py-2.5 rounded-xl bg-slate-200/80 dark:bg-zinc-800/90 hover:bg-sky-400 dark:hover:bg-sky-400 hover:text-slate-950 dark:hover:text-slate-950 text-slate-800 dark:text-zinc-200 text-xs font-bold font-mono transition-all flex items-center justify-center gap-2">
+            <span data-i18n="projects.detailsBtn">Project Details</span>
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+          </button>
+        </div>
+      </article>
+
+      <!-- Project 7: Car Rental Desktop Application -->
+      <article class="project-card glass-panel rounded-3xl overflow-hidden hover:border-purple-500/40 hover:-translate-y-1 transition-all flex flex-col justify-between group shadow-md" data-category="desktop" data-tech="Java,MySQL">
+        <div>
+          <div class="h-44 bg-gradient-to-br from-slate-900 via-purple-950 to-zinc-900 p-6 flex flex-col justify-between relative overflow-hidden">
+            <div class="absolute right-3 top-3 opacity-15 text-6xl font-mono font-black text-purple-400 select-none">07</div>
+            <span data-i18n="projects.badgeDesktop" class="inline-block px-3 py-1 rounded-full text-xs font-mono font-semibold bg-purple-500/20 text-purple-300 border border-purple-500/30 w-max">
+              Desktop App
+            </span>
+            <div>
+              <span class="text-xs font-mono text-zinc-400">&lt;Java OOP &amp; GUI/&gt;</span>
+              <h3 data-i18n="proj.p7Title" class="text-xl font-bold text-white mt-1 group-hover:text-purple-300 transition-colors">Car Rental Desktop Application</h3>
+            </div>
+          </div>
+          <div class="p-6">
+            <p data-i18n="proj.p7Desc" class="text-slate-600 dark:text-zinc-400 text-sm leading-relaxed mb-4">
+              A desktop-based car rental application managing vehicle data, customer information, rental transactions, payment records, and return schedules.
+            </p>
+            <div class="flex flex-wrap gap-1.5 mb-2">
+              <span class="px-2.5 py-0.5 rounded-md text-xs font-mono bg-slate-200/80 dark:bg-zinc-800 text-slate-800 dark:text-zinc-300">Java</span>
+              <span class="px-2.5 py-0.5 rounded-md text-xs font-mono bg-slate-200/80 dark:bg-zinc-800 text-slate-800 dark:text-zinc-300">MySQL</span>
+            </div>
+          </div>
+        </div>
+        <div class="px-6 pb-6 pt-0">
+          <button type="button" onclick="openModal('car-rental-java')" class="w-full py-2.5 rounded-xl bg-slate-200/80 dark:bg-zinc-800/90 hover:bg-purple-400 dark:hover:bg-purple-400 hover:text-slate-950 dark:hover:text-slate-950 text-slate-800 dark:text-zinc-200 text-xs font-bold font-mono transition-all flex items-center justify-center gap-2">
+            <span data-i18n="projects.detailsBtn">Project Details</span>
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+          </button>
+        </div>
+      </article>
+
+    </div>
+  </section>
+
+  <!-- CASE STUDY MODAL CONTAINER -->
+  <div id="project-modal" onclick="if(event.target === this) closeModal()" class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-950/75 backdrop-blur-md hidden opacity-0 transition-opacity duration-300">
+    <div class="glass-panel rounded-3xl max-w-2xl w-full max-h-[90vh] overflow-y-auto p-6 sm:p-8 shadow-2xl relative">
+      
+      <!-- Close Modal Button -->
+      <button type="button" onclick="closeModal()" aria-label="Close Modal" class="absolute top-5 right-5 p-2 rounded-full bg-slate-200 dark:bg-zinc-800 hover:bg-rose-500 hover:text-white text-slate-700 dark:text-zinc-300 transition-all">
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
+      </button>
+
+      <div id="modal-content">
+        <!-- Dynamically Populated Content -->
+      </div>
+    </div>
+  </div>
+
+  <!-- 5. CONTACT SECTION (#contact) -->
+  <section id="contact" class="relative z-10 py-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+    
+    <!-- Section Header -->
+    <div class="text-center max-w-3xl mx-auto mb-14 scroll-reveal">
+      <h2 data-i18n="contact.tag" class="text-xs font-mono font-bold tracking-widest text-sky-600 dark:text-sky-400 uppercase mb-2">04. GET IN TOUCH</h2>
+      <p data-i18n="contact.heading" class="text-3xl sm:text-4xl font-extrabold tracking-tight text-slate-900 dark:text-white">
+        Let's Build Something Exceptional Together
+      </p>
+      <p data-i18n="contact.sub" class="text-slate-600 dark:text-zinc-400 text-sm mt-3">
+        Have a project in mind, need a fullstack developer, or want to collaborate? Drop a message!
+      </p>
+      <div class="w-16 h-1 bg-gradient-to-r from-sky-400 to-emerald-400 mx-auto mt-4 rounded-full"></div>
+    </div>
+
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
+      
+      <!-- Contact Info Cards -->
+      <div class="lg:col-span-5 space-y-4 scroll-reveal">
+        
+        <!-- Direct Email Card -->
+        <div class="glass-panel rounded-2xl p-6 flex items-start justify-between group shadow-sm">
+          <div class="flex items-start gap-4">
+            <div class="p-3 rounded-xl bg-sky-500/10 text-sky-600 dark:text-sky-400 border border-sky-500/25 group-hover:scale-110 transition-transform">
+              <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+            </div>
+            <div>
+              <h4 data-i18n="contact.emailLabel" class="text-xs font-mono text-slate-500 dark:text-zinc-400 uppercase tracking-wider">Direct Email</h4>
+              <a href="mailto:katiarwadhi96@gmail.com" class="text-sm sm:text-base font-bold text-slate-900 dark:text-zinc-100 hover:text-sky-600 dark:hover:text-sky-400 transition-colors break-all">
+                katiarwadhi96@gmail.com
+              </a>
+              <p data-i18n="contact.emailSub" class="text-xs text-slate-500 dark:text-zinc-500 mt-1">Quick response guaranteed</p>
+            </div>
+          </div>
+          <button type="button" onclick="copyEmailToClipboard()" class="p-2 text-slate-500 dark:text-zinc-400 hover:text-sky-500 transition-colors" title="Copy Email">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"/></svg>
+          </button>
+        </div>
+
+        <!-- Location Card -->
+        <div class="glass-panel rounded-2xl p-6 flex items-start gap-4 shadow-sm">
+          <div class="p-3 rounded-xl bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 border border-emerald-500/25">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+          </div>
+          <div>
+            <h4 data-i18n="contact.locLabel" class="text-xs font-mono text-slate-500 dark:text-zinc-400 uppercase tracking-wider">Location &amp; Timezone</h4>
+            <p class="text-base font-bold text-slate-900 dark:text-zinc-100">Jakarta, Indonesia</p>
+            <p data-i18n="contact.locSub" class="text-xs text-slate-500 dark:text-zinc-500 mt-1">UTC+7 (Western Indonesia Time)</p>
+          </div>
+        </div>
+
+        <!-- Social Media Card -->
+        <div class="glass-panel rounded-2xl p-6 shadow-sm">
+          <h4 data-i18n="contact.socialLabel" class="text-xs font-mono text-slate-500 dark:text-zinc-400 uppercase tracking-wider mb-4">Connect Online</h4>
+          <div class="flex flex-wrap items-center gap-3">
+            
+            <a href="https://github.com" target="_blank" rel="noopener noreferrer" class="p-3 rounded-xl bg-slate-200/80 dark:bg-zinc-800/80 hover:bg-sky-500 dark:hover:bg-sky-500 hover:text-slate-950 dark:hover:text-slate-950 text-slate-700 dark:text-zinc-300 border border-slate-300 dark:border-zinc-700/60 transition-all" title="GitHub Profile">
+              <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+            </a>
+
+            <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" class="p-3 rounded-xl bg-slate-200/80 dark:bg-zinc-800/80 hover:bg-sky-500 dark:hover:bg-sky-500 hover:text-slate-950 dark:hover:text-slate-950 text-slate-700 dark:text-zinc-300 border border-slate-300 dark:border-zinc-700/60 transition-all" title="LinkedIn Profile">
+              <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+            </a>
+
+            <a href="https://instagram.com/katiarwdhi" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 px-3.5 py-3 rounded-xl bg-slate-200/80 dark:bg-zinc-800/80 hover:bg-sky-500 dark:hover:bg-sky-500 hover:text-slate-950 dark:hover:text-slate-950 text-slate-700 dark:text-zinc-300 border border-slate-300 dark:border-zinc-700/60 transition-all font-mono text-xs" title="Instagram @katiarwdhi">
+              <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+              <span>@katiarwdhi</span>
+            </a>
+
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Contact Form -->
+      <div class="lg:col-span-7 scroll-reveal">
+        <div class="glass-panel rounded-3xl p-6 sm:p-8 shadow-lg">
+          <form id="contact-form" onsubmit="handleContactSubmit(event)" class="space-y-4">
+            
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <div>
+                <label for="form-name" data-i18n="form.nameLabel" class="block text-xs font-mono text-slate-700 dark:text-zinc-300 mb-1.5">Your Name *</label>
+                <input type="text" id="form-name" data-i18n-placeholder="form.namePh" required placeholder="John Doe" class="w-full px-4 py-3 rounded-xl bg-slate-100 dark:bg-zinc-900/90 text-slate-900 dark:text-zinc-100 placeholder-slate-400 dark:placeholder-zinc-500 border border-slate-300 dark:border-zinc-700/80 focus:outline-none focus:border-sky-500 text-sm transition-colors">
+              </div>
+
+              <div>
+                <label for="form-email" data-i18n="form.emailLabel" class="block text-xs font-mono text-slate-700 dark:text-zinc-300 mb-1.5">Your Email *</label>
+                <input type="email" id="form-email" required placeholder="john@example.com" class="w-full px-4 py-3 rounded-xl bg-slate-100 dark:bg-zinc-900/90 text-slate-900 dark:text-zinc-100 placeholder-slate-400 dark:placeholder-zinc-500 border border-slate-300 dark:border-zinc-700/80 focus:outline-none focus:border-sky-500 text-sm transition-colors">
+              </div>
+            </div>
+
+            <div>
+              <label for="form-subject" data-i18n="form.subjectLabel" class="block text-xs font-mono text-slate-700 dark:text-zinc-300 mb-1.5">Subject</label>
+              <input type="text" id="form-subject" data-i18n-placeholder="form.subjectPh" placeholder="Project Opportunity / Inquiry" class="w-full px-4 py-3 rounded-xl bg-slate-100 dark:bg-zinc-900/90 text-slate-900 dark:text-zinc-100 placeholder-slate-400 dark:placeholder-zinc-500 border border-slate-300 dark:border-zinc-700/80 focus:outline-none focus:border-sky-500 text-sm transition-colors">
+            </div>
+
+            <div>
+              <label for="form-message" data-i18n="form.msgLabel" class="block text-xs font-mono text-slate-700 dark:text-zinc-300 mb-1.5">Message *</label>
+              <textarea id="form-message" data-i18n-placeholder="form.msgPh" required rows="4" placeholder="Tell me about your project requirements..." class="w-full px-4 py-3 rounded-xl bg-slate-100 dark:bg-zinc-900/90 text-slate-900 dark:text-zinc-100 placeholder-slate-400 dark:placeholder-zinc-500 border border-slate-300 dark:border-zinc-700/80 focus:outline-none focus:border-sky-500 text-sm transition-colors"></textarea>
+            </div>
+
+            <button id="form-submit-btn" type="submit" class="w-full py-3.5 rounded-xl bg-gradient-to-r from-sky-500 to-emerald-500 hover:from-sky-400 hover:to-emerald-400 text-slate-950 font-bold text-sm shadow-lg shadow-sky-500/20 transition-all flex items-center justify-center gap-2">
+              <span id="submit-btn-text" data-i18n="form.submitBtn">Send Message</span>
+              <svg id="submit-spinner" class="w-4 h-4 animate-spin hidden" fill="none" viewBox="0 0 24 24"><circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle><path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path></svg>
+            </button>
+
+          </form>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="relative z-10 pb-28 md:pb-12 pt-12 border-t border-slate-300 dark:border-zinc-800/80 text-slate-500 dark:text-zinc-400 text-xs">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-4">
+      
+      <div class="flex items-center gap-2.5 font-mono">
+        <span class="w-7 h-7 rounded-lg bg-sky-500/15 text-sky-600 dark:text-sky-400 border border-sky-500/30 flex items-center justify-center font-bold text-[10px]">KW</span>
+        <span data-i18n="footer.rights">© 2026 Katiar Wadhi. All rights reserved.</span>
+      </div>
+
+      <div class="flex items-center gap-6">
+        <a href="#home" data-i18n="nav.home" class="hover:text-sky-600 dark:hover:text-sky-400 transition-colors">Home</a>
+        <a href="#about" data-i18n="nav.about" class="hover:text-sky-600 dark:hover:text-sky-400 transition-colors">About</a>
+        <a href="#skills" data-i18n="nav.skills" class="hover:text-sky-600 dark:hover:text-sky-400 transition-colors">Skills</a>
+        <a href="#projects" data-i18n="nav.projects" class="hover:text-sky-600 dark:hover:text-sky-400 transition-colors">Projects</a>
+        <button type="button" onclick="scrollToTop()" data-i18n="footer.top" class="px-2.5 py-1.5 rounded-lg bg-slate-200 dark:bg-zinc-800 text-slate-800 dark:text-zinc-200 hover:text-sky-500 transition-colors font-mono" title="Back to top">
+          ↑ Top
+        </button>
+      </div>
+
+    </div>
+  </footer>
+
+  <!-- JAVASCRIPT LOGIC -->
+  <script>
+    // --- 0. Bilingual Dictionary (English & Indonesian) ---
+    const translations = {
+      en: {
+        'nav.home': 'Home',
+        'nav.about': 'About',
+        'nav.skills': 'Skills',
+        'nav.projects': 'Projects',
+        'nav.contact': 'Contact',
+        'hero.badge': 'Available for Freelance & Full-Time Roles',
+        'hero.greeting': "Hi, I'm",
+        'hero.bio': 'Passionate Web & Mobile Developer building modern, scalable, and visually appealing applications. Focused on system performance, clean architecture, and maintainable code.',
+        'hero.ctaProjects': 'View My Projects',
+        'hero.copyEmail': 'Copy Email',
+        'hero.copied': 'Copied!',
+        'hero.cardSub': 'Informatics Engineering • Jakarta',
+        'term.prompt': 'Run live environment check',
+        'term.runBtn': 'Run Check',
+        'about.tag': '01. ABOUT ME',
+        'about.heading': 'Engineered for Reliability & Seamless Execution',
+        'about.eduLabel': 'Education',
+        'about.eduVal': 'Informatics Eng. — UNINDRA',
+        'about.focusLabel': 'Core Focus',
+        'about.availLabel': 'Availability',
+        'about.availVal': 'Open to Opportunities',
+        'about.cardTitle': 'About Me & Engineering Approach',
+        'about.cardSub': 'Building scalable systems from database to UI',
+        'about.p1': 'Hello! I\'m <strong class="text-slate-900 dark:text-white">Katiar Wadhi</strong>, a passionate Backend and Fullstack Developer specializing in building web and mobile applications that are efficient, scalable, and user-friendly.',
+        'about.p2': 'I have hands-on experience with <strong class="text-sky-600 dark:text-sky-400 font-mono">Laravel, PHP, MySQL, Java, Flutter, and Dart</strong>, creating robust systems for web, mobile, and desktop platforms. I thrive in collaborative environments and enjoy solving complex problems with practical, maintainable solutions.',
+        'about.pillar1Title': 'End-to-End Web',
+        'about.pillar1Desc': 'Laravel MVC, REST APIs, relational MySQL schemas, and role-based auth.',
+        'about.pillar2Title': 'Cross-Platform',
+        'about.pillar2Desc': 'Flutter & Dart mobile apps connected seamlessly with backend APIs.',
+        'about.pillar3Title': 'Desktop & POS',
+        'about.pillar3Desc': 'Java desktop software & cashier POS inventory management systems.',
+        'about.footerStat': '7+ Production-Ready Systems Built',
+        'about.exploreSkills': 'Explore Tech Stack →',
+        'skills.tag': '02. TECH STACK & SKILLS',
+        'skills.heading': 'Core Technologies I Command',
+        'skills.sub': 'Filter by domain or click any technology card to jump directly to matching projects.',
+        'skills.tabAll': 'All Stack (7)',
+        'skills.tabBackend': 'Backend & DB (3)',
+        'skills.tabMobile': 'Mobile & Desktop (3)',
+        'skills.tabFrontend': 'Frontend Web (1)',
+        'skills.badgePrimary': 'Primary Stack',
+        'skills.badgeBackend': 'Backend Core',
+        'skills.badgeDb': 'Relational DB',
+        'skills.badgeCross': 'Cross-Platform',
+        'skills.proficiency': 'Proficiency',
+        'skills.projectsPlural': 'Projects',
+        'skills.projectSingular': 'Project',
+        'skills.filterCta': 'Filter →',
+        'projects.tag': '03. PORTFOLIO & SYSTEMS',
+        'projects.heading': 'Featured Real-World Applications',
+        'projects.filteredBy': 'Filtered by tech stack:',
+        'projects.clearFilter': 'Clear Filter ✕',
+        'projects.tabAll': 'All Projects (7)',
+        'projects.tabWeb': 'Web App (5)',
+        'projects.tabMobile': 'Mobile App (1)',
+        'projects.tabDesktop': 'Desktop App (1)',
+        'projects.badgeWeb': 'Web App',
+        'projects.badgeMobile': 'Mobile App',
+        'projects.badgeDesktop': 'Desktop App',
+        'projects.detailsBtn': 'Project Details',
+        'proj.p1Title': 'E-Commerce Web Application',
+        'proj.p1Desc': 'Web-based e-commerce application featuring product management, shopping cart, checkout process, and payment gateway integration.',
+        'proj.p2Title': 'Library Management System',
+        'proj.p2Desc': 'A web-based library system for managing books, categories, borrowing, returns, and user authentication with role-based access.',
+        'proj.p3Title': 'Class Management Website',
+        'proj.p3Desc': 'A web application to manage classes, students, schedules, and attendance with a clean and responsive interface.',
+        'proj.p4Title': 'Point of Sale (POS) Web App',
+        'proj.p4Desc': 'A web-based cashier system for handling sales transactions, product management, payment processing, and daily sales reports.',
+        'proj.p5Title': 'Laundry Management System',
+        'proj.p5Desc': 'A web application for managing laundry orders, customer data, service types, pricing, and order status tracking.',
+        'proj.p6Title': 'E-Commerce Mobile App',
+        'proj.p6Desc': 'Mobile e-commerce application allowing users to browse products, manage shopping carts, place orders, and track purchases seamlessly.',
+        'proj.p7Title': 'Car Rental Desktop Application',
+        'proj.p7Desc': 'A desktop-based car rental application managing vehicle data, customer information, rental transactions, payment records, and return schedules.',
+        'contact.tag': '04. GET IN TOUCH',
+        'contact.heading': "Let's Build Something Exceptional Together",
+        'contact.sub': 'Have a project in mind, need a fullstack developer, or want to collaborate? Drop a message!',
+        'contact.emailLabel': 'Direct Email',
+        'contact.emailSub': 'Quick response guaranteed',
+        'contact.locLabel': 'Location & Timezone',
+        'contact.locSub': 'UTC+7 (Western Indonesia Time)',
+        'contact.socialLabel': 'Connect Online',
+        'form.nameLabel': 'Your Name *',
+        'form.namePh': 'John Doe',
+        'form.emailLabel': 'Your Email *',
+        'form.subjectLabel': 'Subject',
+        'form.subjectPh': 'Project Opportunity / Inquiry',
+        'form.msgLabel': 'Message *',
+        'form.msgPh': 'Tell me about your project requirements...',
+        'form.submitBtn': 'Send Message',
+        'form.sending': 'Sending...',
+        'form.sent': 'Message Sent!',
+        'footer.rights': '© 2026 Katiar Wadhi. All rights reserved.',
+        'footer.top': '↑ Top',
+        'modal.arch': 'System Architecture Overview',
+        'modal.overview': 'Overview',
+        'modal.capabilities': 'Key System Modules & Capabilities',
+        'modal.close': 'Close',
+        'modal.inquire': 'Inquire About System',
+        'modal.inquiryPrefix': 'Inquiry regarding',
+        'toast.light': 'Switched to Light Mode',
+        'toast.dark': 'Switched to Dark Mode',
+        'toast.lang': 'Language switched to English',
+        'toast.diag': 'System Diagnostics Completed',
+        'toast.copied': 'Copied katiarwadhi96@gmail.com',
+        'toast.sent': 'Thank you! Katiar will get back to you shortly.',
+        'toast.filterMatch': (count, skill) => `Showing ${count} projects using ${skill}`,
+        typewriter: [
+          'Backend & Fullstack Developer',
+          'Flutter Mobile Developer',
+          'Web Application Architect',
+          'Laravel & MySQL Specialist'
+        ]
+      },
+      id: {
+        'nav.home': 'Beranda',
+        'nav.about': 'Tentang',
+        'nav.skills': 'Keahlian',
+        'nav.projects': 'Proyek',
+        'nav.contact': 'Kontak',
+        'hero.badge': 'Tersedia untuk Freelance & Full-Time',
+        'hero.greeting': 'Halo, Saya',
+        'hero.bio': 'Web & Mobile Developer yang membangun aplikasi modern, skalabel, dan menarik secara visual. Berfokus pada performa sistem, arsitektur bersih, dan kode yang mudah dipelihara.',
+        'hero.ctaProjects': 'Lihat Proyek Saya',
+        'hero.copyEmail': 'Salin Email',
+        'hero.copied': 'Tersalin!',
+        'hero.cardSub': 'Teknik Informatika • Jakarta',
+        'term.prompt': 'Jalankan cek lingkungan langsung',
+        'term.runBtn': 'Jalankan Cek',
+        'about.tag': '01. TENTANG SAYA',
+        'about.heading': 'Dirancang untuk Keandalan & Eksekusi Mulus',
+        'about.eduLabel': 'Pendidikan',
+        'about.eduVal': 'Teknik Informatika — UNINDRA',
+        'about.focusLabel': 'Fokus Utama',
+        'about.availLabel': 'Ketersediaan',
+        'about.availVal': 'Terbuka untuk Peluang Kerja',
+        'about.cardTitle': 'Tentang Saya & Pendekatan Rekayasa',
+        'about.cardSub': 'Membangun sistem skalabel dari database hingga antarmuka',
+        'about.p1': 'Halo! Saya <strong class="text-slate-900 dark:text-white">Katiar Wadhi</strong>, seorang Backend dan Fullstack Developer yang berfokus pada pengembangan aplikasi web dan mobile yang efisien, skalabel, dan ramah pengguna.',
+        'about.p2': 'Saya berpengalaman menggunakan <strong class="text-sky-600 dark:text-sky-400 font-mono">Laravel, PHP, MySQL, Java, Flutter, dan Dart</strong> untuk membangun sistem yang tangguh di platform web, mobile, maupun desktop. Saya terbiasa bekerja kolaboratif dan menyukai pemecahan masalah kompleks dengan solusi yang praktis.',
+        'about.pillar1Title': 'Web End-to-End',
+        'about.pillar1Desc': 'Laravel MVC, REST API, skema relasional MySQL, dan autentikasi berbasis peran.',
+        'about.pillar2Title': 'Lintas Platform',
+        'about.pillar2Desc': 'Aplikasi mobile Flutter & Dart yang terhubung mulus dengan backend API.',
+        'about.pillar3Title': 'Desktop & POS',
+        'about.pillar3Desc': 'Perangkat lunak desktop Java & sistem kasir POS manajemen inventaris.',
+        'about.footerStat': '7+ Sistem Siap Produksi Dibangun',
+        'about.exploreSkills': 'Jelajahi Tech Stack →',
+        'skills.tag': '02. TECH STACK & KEAHLIAN',
+        'skills.heading': 'Teknologi Inti yang Dikuasai',
+        'skills.sub': 'Filter berdasarkan domain atau klik kartu teknologi untuk melihat proyek terkait.',
+        'skills.tabAll': 'Semua Stack (7)',
+        'skills.tabBackend': 'Backend & DB (3)',
+        'skills.tabMobile': 'Mobile & Desktop (3)',
+        'skills.tabFrontend': 'Frontend Web (1)',
+        'skills.badgePrimary': 'Stack Utama',
+        'skills.badgeBackend': 'Inti Backend',
+        'skills.badgeDb': 'Database Relasional',
+        'skills.badgeCross': 'Lintas Platform',
+        'skills.proficiency': 'Penguasaan',
+        'skills.projectsPlural': 'Proyek',
+        'skills.projectSingular': 'Proyek',
+        'skills.filterCta': 'Filter →',
+        'projects.tag': '03. PORTOFOLIO & SISTEM',
+        'projects.heading': 'Aplikasi Unggulan yang Dibangun',
+        'projects.filteredBy': 'Difilter berdasarkan teknologi:',
+        'projects.clearFilter': 'Hapus Filter ✕',
+        'projects.tabAll': 'Semua Proyek (7)',
+        'projects.tabWeb': 'Aplikasi Web (5)',
+        'projects.tabMobile': 'Aplikasi Mobile (1)',
+        'projects.tabDesktop': 'Aplikasi Desktop (1)',
+        'projects.badgeWeb': 'Aplikasi Web',
+        'projects.badgeMobile': 'Aplikasi Mobile',
+        'projects.badgeDesktop': 'Aplikasi Desktop',
+        'projects.detailsBtn': 'Detail Proyek',
+        'proj.p1Title': 'Aplikasi Web E-Commerce',
+        'proj.p1Desc': 'Aplikasi e-commerce berbasis web dengan fitur manajemen produk, keranjang belanja, proses checkout, dan integrasi payment gateway.',
+        'proj.p2Title': 'Sistem Manajemen Perpustakaan',
+        'proj.p2Desc': 'Sistem perpustakaan berbasis web untuk mengelola buku, kategori, peminjaman, pengembalian, serta autentikasi berbasis peran.',
+        'proj.p3Title': 'Website Manajemen Kelas',
+        'proj.p3Desc': 'Aplikasi web untuk mengelola data kelas, siswa, jadwal pelajaran, dan absensi dengan antarmuka bersih serta responsif.',
+        'proj.p4Title': 'Aplikasi Web Point of Sale (POS)',
+        'proj.p4Desc': 'Sistem kasir berbasis web untuk menangani transaksi penjualan, manajemen stok produk, pembayaran, dan laporan harian.',
+        'proj.p5Title': 'Sistem Manajemen Laundry',
+        'proj.p5Desc': 'Aplikasi web untuk mengelola pesanan laundry, data pelanggan, jenis layanan, kalkulasi harga, dan pelacakan status cucian.',
+        'proj.p6Title': 'Aplikasi Mobile E-Commerce',
+        'proj.p6Desc': 'Aplikasi belanja mobile yang memudahkan pengguna menelusuri produk, mengelola keranjang, memesan, dan melacak pengiriman.',
+        'proj.p7Title': 'Aplikasi Desktop Rental Mobil',
+        'proj.p7Desc': 'Aplikasi desktop penyewaan mobil untuk mengelola data armada, pelanggan, transaksi sewa, pembayaran, dan jadwal pengembalian.',
+        'contact.tag': '04. HUBUNGI SAYA',
+        'contact.heading': 'Mari Bangun Sistem Luar Biasa Bersama',
+        'contact.sub': 'Punya ide proyek, butuh fullstack developer, atau ingin berkolaborasi? Kirim pesan sekarang!',
+        'contact.emailLabel': 'Email Langsung',
+        'contact.emailSub': 'Respon cepat terjamin',
+        'contact.locLabel': 'Lokasi & Zona Waktu',
+        'contact.locSub': 'WIB / UTC+7 (Waktu Indonesia Barat)',
+        'contact.socialLabel': 'Terhubung Online',
+        'form.nameLabel': 'Nama Anda *',
+        'form.namePh': 'Budi Santoso',
+        'form.emailLabel': 'Email Anda *',
+        'form.subjectLabel': 'Subjek',
+        'form.subjectPh': 'Penawaran Proyek / Pertanyaan',
+        'form.msgLabel': 'Pesan *',
+        'form.msgPh': 'Ceritakan kebutuhan proyek Anda...',
+        'form.submitBtn': 'Kirim Pesan',
+        'form.sending': 'Mengirim...',
+        'form.sent': 'Pesan Terkirim!',
+        'footer.rights': '© 2026 Katiar Wadhi. Hak cipta dilindungi.',
+        'footer.top': '↑ Atas',
+        'modal.arch': 'Ringkasan Arsitektur Sistem',
+        'modal.overview': 'Gambaran Umum',
+        'modal.capabilities': 'Modul & Fitur Utama Sistem',
+        'modal.close': 'Tutup',
+        'modal.inquire': 'Tanyakan Sistem Ini',
+        'modal.inquiryPrefix': 'Pertanyaan terkait',
+        'toast.light': 'Beralih ke Mode Terang',
+        'toast.dark': 'Beralih ke Mode Gelap',
+        'toast.lang': 'Bahasa diubah ke Bahasa Indonesia',
+        'toast.diag': 'Diagnostik Sistem Selesai',
+        'toast.copied': 'Email katiarwadhi96@gmail.com disalin',
+        'toast.sent': 'Terima kasih! Katiar akan segera menghubungi Anda.',
+        'toast.filterMatch': (count, skill) => `Menampilkan ${count} proyek dengan ${skill}`,
+        typewriter: [
+          'Backend & Fullstack Developer',
+          'Flutter Mobile Developer',
+          'Arsitek Aplikasi Web',
+          'Spesialis Laravel & MySQL'
+        ]
+      }
+    };
+
+    let currentLang = localStorage.getItem('kw_portfolio_lang') || 'en';
+
+    function applyLanguage(lang, notify = false) {
+      currentLang = lang;
+      localStorage.setItem('kw_portfolio_lang', lang);
+      document.documentElement.setAttribute('lang', lang);
+
+      const dict = translations[lang];
+
+      // Update toggle button badge (shows target language to switch to)
+      document.querySelectorAll('.lang-label').forEach(el => {
+        el.textContent = lang === 'en' ? 'ID' : 'EN';
+      });
+
+      // Update text & HTML elements
+      document.querySelectorAll('[data-i18n]').forEach(el => {
+        const key = el.getAttribute('data-i18n');
+        if (dict[key]) {
+          el.innerHTML = dict[key];
+        }
+      });
+
+      // Update input placeholders
+      document.querySelectorAll('[data-i18n-placeholder]').forEach(el => {
+        const key = el.getAttribute('data-i18n-placeholder');
+        if (dict[key]) {
+          el.setAttribute('placeholder', dict[key]);
+        }
+      });
+
+      // Reset typewriter phrase index cleanly
+      phraseIdx = 0;
+      charIdx = 0;
+      isDeleting = false;
+
+      if (notify) {
+        showToast(dict['toast.lang']);
+      }
+    }
+
+    document.querySelectorAll('.lang-toggle-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const nextLang = currentLang === 'en' ? 'id' : 'en';
+        applyLanguage(nextLang, true);
+      });
+    });
+
+    // --- 1. Light/Dark Mode Controller (Synced for Desktop & Mobile) ---
+    const htmlEl = document.documentElement;
+    const themeToggleBtns = document.querySelectorAll('.theme-toggle-btn');
+
+    const savedTheme = localStorage.getItem('kw_portfolio_theme');
+    if (savedTheme === 'light') {
+      htmlEl.classList.remove('dark');
+    } else {
+      htmlEl.classList.add('dark');
+    }
+
+    themeToggleBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        if (htmlEl.classList.contains('dark')) {
+          htmlEl.classList.remove('dark');
+          localStorage.setItem('kw_portfolio_theme', 'light');
+          showToast(translations[currentLang]['toast.light']);
+        } else {
+          htmlEl.classList.add('dark');
+          localStorage.setItem('kw_portfolio_theme', 'dark');
+          showToast(translations[currentLang]['toast.dark']);
+        }
+      });
+    });
+
+    // --- 2. Typewriter Effect (Bilingual Aware) ---
+    let phraseIdx = 0;
+    let charIdx = 0;
+    let isDeleting = false;
+    const typewriterEl = document.getElementById('typewriter');
+
+    function typeEffect() {
+      const phrases = translations[currentLang].typewriter;
+      const currentPhrase = phrases[phraseIdx % phrases.length];
+      
+      if (isDeleting) {
+        typewriterEl.textContent = currentPhrase.substring(0, charIdx - 1);
+        charIdx--;
+      } else {
+        typewriterEl.textContent = currentPhrase.substring(0, charIdx + 1);
+        charIdx++;
+      }
+
+      let speed = isDeleting ? 40 : 80;
+
+      if (!isDeleting && charIdx === currentPhrase.length) {
+        speed = 2000;
+        isDeleting = true;
+      } else if (isDeleting && charIdx === 0) {
+        isDeleting = false;
+        phraseIdx = (phraseIdx + 1) % phrases.length;
+        speed = 400;
+      }
+
+      setTimeout(typeEffect, speed);
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+      applyLanguage(currentLang, false);
+      typeEffect();
+    });
+
+    // --- 3. Terminal Tab Switcher & Diagnostic Run ---
+    const tabs = document.querySelectorAll('.terminal-tab');
+    tabs.forEach(tab => {
+      tab.addEventListener('click', () => {
+        const target = tab.getAttribute('data-tab');
+        
+        tabs.forEach(t => {
+          t.classList.remove('text-sky-400', 'bg-slate-800', 'dark:bg-zinc-800');
+          t.classList.add('text-zinc-400');
+        });
+        tab.classList.add('text-sky-400', 'bg-slate-800', 'dark:bg-zinc-800');
+        tab.classList.remove('text-zinc-400');
+
+        document.querySelectorAll('.terminal-pane').forEach(p => p.classList.add('hidden'));
+        document.getElementById(`tab-content-${target}`).classList.remove('hidden');
+      });
+    });
+
+    const runCheckBtn = document.getElementById('run-check-btn');
+    const terminalOutput = document.getElementById('terminal-output');
+    runCheckBtn.addEventListener('click', () => {
+      terminalOutput.classList.remove('hidden');
+      terminalOutput.innerHTML = `<span class="text-sky-400">➜</span> Diagnostics running... <br><span class="text-zinc-300">Ping: 12ms | PHP 8.3 &amp; Laravel v11 OK | MySQL Ready | Flutter 3.x Ready</span>`;
+      showToast(translations[currentLang]['toast.diag']);
+    });
+
+    // --- 4. Copy Email & Toast System ---
+    function copyEmailToClipboard() {
+      const email = 'katiarwadhi96@gmail.com';
+      if (navigator.clipboard && window.isSecureContext) {
+        navigator.clipboard.writeText(email);
+      } else {
+        const tempInput = document.createElement('input');
+        tempInput.value = email;
+        document.body.appendChild(tempInput);
+        tempInput.select();
+        document.execCommand('copy');
+        document.body.removeChild(tempInput);
+      }
+      
+      const btnText = document.getElementById('copy-btn-text');
+      if (btnText) btnText.textContent = translations[currentLang]['hero.copied'];
+      setTimeout(() => {
+        if (btnText) btnText.textContent = translations[currentLang]['hero.copyEmail'];
+      }, 2000);
+
+      showToast(translations[currentLang]['toast.copied']);
+    }
+    document.getElementById('copy-email-btn').addEventListener('click', copyEmailToClipboard);
+
+    function showToast(message) {
+      const container = document.getElementById('toast-container');
+      const toast = document.createElement('div');
+      toast.className = 'glass-panel px-4 py-2.5 rounded-xl text-xs font-mono font-semibold text-emerald-600 dark:text-emerald-400 border border-emerald-500/40 shadow-xl transition-all transform translate-y-2 opacity-0';
+      toast.innerHTML = `✓ ${message}`;
+      container.appendChild(toast);
+
+      setTimeout(() => {
+        toast.classList.remove('translate-y-2', 'opacity-0');
+      }, 40);
+
+      setTimeout(() => {
+        toast.classList.add('opacity-0', '-translate-y-2');
+        setTimeout(() => toast.remove(), 300);
+      }, 3000);
+    }
+
+    // --- 5. Skill Domain Filter & Project Cross-Filtering ---
+    let currentSelectedSkill = null;
+
+    function filterSkillGroup(group) {
+      document.querySelectorAll('.skill-group-btn').forEach(btn => {
+        if (btn.getAttribute('data-group') === group) {
+          btn.className = 'skill-group-btn px-4 py-2 rounded-xl text-xs sm:text-sm font-mono font-semibold transition-all bg-sky-500 text-slate-950 shadow-md';
+        } else {
+          btn.className = 'skill-group-btn px-4 py-2 rounded-xl text-xs sm:text-sm font-mono font-semibold transition-all bg-slate-200/80 dark:bg-zinc-800/80 text-slate-700 dark:text-zinc-300 hover:bg-slate-300 dark:hover:bg-zinc-700';
+        }
+      });
+
+      document.querySelectorAll('.skill-card').forEach(card => {
+        const cardGroup = card.getAttribute('data-group');
+        if (group === 'all' || cardGroup === group) {
+          card.classList.remove('hidden');
+        } else {
+          card.classList.add('hidden');
+        }
+      });
+    }
+
+    function filterCategory(cat) {
+      currentSelectedSkill = null;
+      document.getElementById('active-skill-banner').classList.add('hidden');
+
+      document.querySelectorAll('.skill-card').forEach(card => {
+        card.classList.remove('ring-2', 'ring-sky-400');
+      });
+
+      document.querySelectorAll('.cat-btn').forEach(btn => {
+        if (btn.getAttribute('data-category') === cat) {
+          btn.className = 'cat-btn px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold transition-all bg-sky-500 text-slate-950 shadow-md';
+        } else {
+          btn.className = 'cat-btn px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold transition-all bg-slate-200/80 dark:bg-zinc-800/80 text-slate-700 dark:text-zinc-300 hover:bg-slate-300 dark:hover:bg-zinc-700';
+        }
+      });
+
+      document.querySelectorAll('.project-card').forEach(card => {
+        const itemCat = card.getAttribute('data-category');
+        if (cat === 'all' || itemCat === cat) {
+          card.classList.remove('hidden');
+        } else {
+          card.classList.add('hidden');
+        }
+      });
+    }
+
+    function filterBySkill(skillName) {
+      if (currentSelectedSkill === skillName) {
+        clearSkillFilter();
+        return;
+      }
+      currentSelectedSkill = skillName;
+
+      document.querySelectorAll('.skill-card').forEach(card => {
+        if (card.getAttribute('data-skill') === skillName) {
+          card.classList.add('ring-2', 'ring-sky-400');
+        } else {
+          card.classList.remove('ring-2', 'ring-sky-400');
+        }
+      });
+
+      document.querySelectorAll('.cat-btn').forEach(btn => {
+        btn.className = 'cat-btn px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold transition-all bg-slate-200/80 dark:bg-zinc-800/80 text-slate-700 dark:text-zinc-300 hover:bg-slate-300 dark:hover:bg-zinc-700';
+      });
+
+      const banner = document.getElementById('active-skill-banner');
+      banner.classList.remove('hidden');
+      document.getElementById('skill-filter-name').textContent = skillName;
+
+      let matchCount = 0;
+      document.querySelectorAll('.project-card').forEach(card => {
+        const techList = card.getAttribute('data-tech').split(',');
+        if (techList.includes(skillName)) {
+          card.classList.remove('hidden');
+          matchCount++;
+        } else {
+          card.classList.add('hidden');
+        }
+      });
+
+      document.getElementById('projects').scrollIntoView({ behavior: 'smooth' });
+      showToast(translations[currentLang]['toast.filterMatch'](matchCount, skillName));
+    }
+
+    function clearSkillFilter() {
+      filterCategory('all');
+    }
+
+    // --- 6. Project Case Study Modal Data (Bilingual EN & ID) ---
+    const caseStudies = {
+      'e-commerce-web': {
+        tech: ['Laravel', 'PHP', 'MySQL', 'JavaScript', 'Blade'],
+        en: {
+          title: 'E-Commerce Web Application',
+          category: 'Web App',
+          description: 'A full-featured online retail store platform designed to manage product catalogs, real-time inventory updates, customer shopping carts, checkout workflows, and administrative order processing.',
+          features: [
+            'Dynamic Product Catalog with categories and live search filtering',
+            'Session-based & DB-backed Shopping Cart management',
+            'Secure Checkout pipeline with payment gateway integration',
+            'Admin Dashboard for inventory control, order fulfillment, and user roles'
+          ]
+        },
+        id: {
+          title: 'Aplikasi Web E-Commerce',
+          category: 'Aplikasi Web',
+          description: 'Platform toko ritel online lengkap yang dirancang untuk mengelola katalog produk, pembaruan stok real-time, keranjang belanja pelanggan, alur checkout, dan pemrosesan pesanan admin.',
+          features: [
+            'Katalog produk dinamis dengan filter kategori dan pencarian langsung',
+            'Manajemen keranjang belanja berbasis sesi & database',
+            'Alur checkout aman dengan integrasi payment gateway',
+            'Dashboard Admin untuk kontrol inventaris, pemenuhan pesanan, dan peran pengguna'
+          ]
+        }
+      },
+      'library-system': {
+        tech: ['Laravel', 'PHP', 'MySQL', 'JavaScript'],
+        en: {
+          title: 'Library Management System',
+          category: 'Web App',
+          description: 'A web-based digital repository system designed for institutions to streamline book tracking, member registration, automated borrowing schedules, and penalty management.',
+          features: [
+            'Member management with role-based access control (RBAC)',
+            'Book catalog indexing and real-time availability status',
+            'Borrowing & return date tracking with automated overdue fine calculation',
+            'Detailed reporting dashboard for circulation statistics'
+          ]
+        },
+        id: {
+          title: 'Sistem Manajemen Perpustakaan',
+          category: 'Aplikasi Web',
+          description: 'Sistem repositori digital berbasis web bagi institusi untuk mempermudah pelacakan buku, pendaftaran anggota, jadwal peminjaman otomatis, dan perhitungan denda.',
+          features: [
+            'Manajemen anggota dengan kontrol akses berbasis peran (RBAC)',
+            'Pengindeksan katalog buku dan status ketersediaan real-time',
+            'Pelacakan tanggal pinjam & kembali dengan kalkulasi denda keterlambatan otomatis',
+            'Dashboard laporan terperinci untuk statistik sirkulasi buku'
+          ]
+        }
+      },
+      'class-management': {
+        tech: ['Laravel', 'PHP', 'MySQL', 'JavaScript'],
+        en: {
+          title: 'Class Management Website',
+          category: 'Web App',
+          description: 'An educational portal engineered for teachers and students to collaborate on class schedules, student data, attendance monitoring, and academic management.',
+          features: [
+            'Role-based access control (Admin, Teacher, Student)',
+            'Interactive class schedule and student roster management',
+            'Real-time student attendance logging & summary reports',
+            'Clean, responsive interface across desktop and mobile devices'
+          ]
+        },
+        id: {
+          title: 'Website Manajemen Kelas',
+          category: 'Aplikasi Web',
+          description: 'Portal pendidikan yang dirancang bagi guru dan siswa untuk berkolaborasi mengelola jadwal kelas, data siswa, pemantauan absensi, dan manajemen akademik.',
+          features: [
+            'Kontrol akses berbasis peran (Admin, Guru, Siswa)',
+            'Manajemen jadwal kelas interaktif dan daftar siswa',
+            'Pencatatan absensi siswa real-time & rekap laporan',
+            'Antarmuka bersih dan responsif di perangkat desktop maupun mobile'
+          ]
+        }
+      },
+      'pos-system': {
+        tech: ['Laravel', 'PHP', 'MySQL', 'JavaScript'],
+        en: {
+          title: 'Point of Sale (POS) Web Application',
+          category: 'Web App',
+          description: 'A robust web-based cashier and inventory management solution built for retail businesses to handle sales transactions quickly and accurately.',
+          features: [
+            'Fast cashier transaction interface optimized for speed',
+            'Automatic stock deduction and product management',
+            'Payment processing and receipt generation',
+            'Daily sales reports and revenue analytics'
+          ]
+        },
+        id: {
+          title: 'Aplikasi Web Point of Sale (POS)',
+          category: 'Aplikasi Web',
+          description: 'Solusi kasir dan manajemen inventaris berbasis web yang tangguh untuk bisnis ritel dalam menangani transaksi penjualan secara cepat dan akurat.',
+          features: [
+            'Antarmuka transaksi kasir cepat yang dioptimalkan untuk efisiensi',
+            'Pengurangan stok otomatis dan manajemen produk',
+            'Pemrosesan pembayaran dan pembuatan struk transaksi',
+            'Laporan penjualan harian dan analitik pendapatan'
+          ]
+        }
+      },
+      'laundry-system': {
+        tech: ['PHP', 'JavaScript', 'MySQL'],
+        en: {
+          title: 'Laundry Management System',
+          category: 'Web App',
+          description: 'An operational tracking web platform tailored for laundry service providers to record customer orders, service types, dynamic pricing, and order status tracking.',
+          features: [
+            'Order intake for weight-based or itemized laundry services',
+            'Live workflow status tracking (Pending → Washing → Ironing → Ready)',
+            'Customer directory and order history logs',
+            'Automated pricing calculation and daily transaction summaries'
+          ]
+        },
+        id: {
+          title: 'Sistem Manajemen Laundry',
+          category: 'Aplikasi Web',
+          description: 'Platform pelacakan operasional berbasis web khusus penyedia jasa laundry untuk mencatat pesanan pelanggan, jenis layanan, harga dinamis, dan status pengerjaan.',
+          features: [
+            'Pencatatan pesanan laundry kiloan maupun satuan',
+            'Pelacakan status pengerjaan langsung (Antre → Dicuci → Disetrika → Siap Diambil)',
+            'Direktori pelanggan dan riwayat log pesanan',
+            'Kalkulasi harga otomatis dan ringkasan transaksi harian'
+          ]
+        }
+      },
+      'flutter-ecommerce': {
+        tech: ['Flutter', 'Dart', 'REST API', 'Laravel', 'MySQL'],
+        en: {
+          title: 'E-Commerce Mobile Application',
+          category: 'Mobile App',
+          description: 'A modern cross-platform mobile application engineered with Flutter & Dart for seamless shopping experiences, backed by a secure Laravel REST API.',
+          features: [
+            'Clean, intuitive Flutter UI with responsive product browsing',
+            'REST API integration with secure user authentication',
+            'Interactive shopping cart and order placement flow',
+            'Real-time purchase and delivery status tracking'
+          ]
+        },
+        id: {
+          title: 'Aplikasi Mobile E-Commerce',
+          category: 'Aplikasi Mobile',
+          description: 'Aplikasi mobile lintas platform modern yang dibangun dengan Flutter & Dart untuk pengalaman belanja mulus, didukung oleh Laravel REST API yang aman.',
+          features: [
+            'Antarmuka Flutter yang bersih dan intuitif dengan penelusuran produk responsif',
+            'Integrasi REST API dengan autentikasi pengguna yang aman',
+            'Alur keranjang belanja interaktif dan pemesanan produk',
+            'Pelacakan status pembelian dan pengiriman secara real-time'
+          ]
+        }
+      },
+      'car-rental-java': {
+        tech: ['Java', 'Swing/GUI', 'MySQL'],
+        en: {
+          title: 'Car Rental Desktop Application',
+          category: 'Desktop App',
+          description: 'A desktop application built using Java and MySQL to streamline vehicle data, customer records, rental transactions, payment records, and return schedules.',
+          features: [
+            'Structured desktop GUI built with Java',
+            'Fleet availability tracking with automated rental rate calculation',
+            'Customer data management and payment record logging',
+            'Direct MySQL relational database integration via JDBC'
+          ]
+        },
+        id: {
+          title: 'Aplikasi Desktop Rental Mobil',
+          category: 'Aplikasi Desktop',
+          description: 'Aplikasi desktop yang dibangun menggunakan Java dan MySQL untuk mempermudah pengelolaan data armada mobil, data pelanggan, transaksi sewa, pembayaran, dan jadwal pengembalian.',
+          features: [
+            'Antarmuka GUI desktop terstruktur yang dibangun dengan Java',
+            'Pelacakan ketersediaan armada dengan kalkulasi tarif sewa otomatis',
+            'Manajemen data pelanggan dan pencatatan riwayat pembayaran',
+            'Integrasi langsung database relasional MySQL melalui JDBC'
+          ]
+        }
+      }
+    };
+
+    function openModal(projectId) {
+      const item = caseStudies[projectId];
+      if (!item) return;
+
+      const localized = item[currentLang];
+      const ui = translations[currentLang];
+      const modal = document.getElementById('project-modal');
+      const content = document.getElementById('modal-content');
+
+      const techBadges = item.tech.map(t => `<span class="px-2.5 py-1 rounded-md text-xs font-mono bg-sky-500/15 text-sky-700 dark:text-sky-400 border border-sky-500/30">${t}</span>`).join(' ');
+      const featureList = localized.features.map(f => `<li class="flex items-start gap-2 text-sm text-slate-700 dark:text-zinc-300"><span class="text-emerald-500 font-bold">✔</span> <span>${f}</span></li>`).join('');
+
+      content.innerHTML = `
+        <div class="space-y-4">
+          <div class="flex flex-wrap items-center gap-2">
+            <span class="px-3 py-1 rounded-full text-xs font-mono font-semibold bg-sky-500/15 text-sky-700 dark:text-sky-300 border border-sky-500/30">${localized.category}</span>
+            <span class="text-xs font-mono text-slate-500 dark:text-zinc-400">${ui['modal.arch']}</span>
+          </div>
+
+          <h3 class="text-2xl sm:text-3xl font-extrabold text-slate-900 dark:text-white pr-8">${localized.title}</h3>
+          
+          <div class="flex flex-wrap gap-2 py-1">
+            ${techBadges}
+          </div>
+
+          <div class="py-3 border-t border-b border-slate-200 dark:border-zinc-800">
+            <h4 class="text-xs font-mono font-bold text-sky-600 dark:text-sky-400 uppercase tracking-wider mb-2">${ui['modal.overview']}</h4>
+            <p class="text-sm text-slate-600 dark:text-zinc-300 leading-relaxed">${localized.description}</p>
+          </div>
+
+          <div>
+            <h4 class="text-xs font-mono font-bold text-emerald-600 dark:text-emerald-400 uppercase tracking-wider mb-3">${ui['modal.capabilities']}</h4>
+            <ul class="space-y-2">
+              ${featureList}
+            </ul>
+          </div>
+
+          <div class="pt-4 flex items-center justify-end gap-3">
+            <button type="button" onclick="closeModal()" class="px-4 py-2 rounded-xl text-xs font-mono text-slate-600 dark:text-zinc-400 hover:text-slate-900 dark:hover:text-white transition-colors">${ui['modal.close']}</button>
+            <a href="#contact" onclick="closeModal(); prefillContact('${localized.title}')" class="px-5 py-2.5 rounded-xl bg-gradient-to-r from-sky-500 to-emerald-500 text-slate-950 font-bold text-xs font-mono shadow-md hover:from-sky-400 hover:to-emerald-400 transition-all">${ui['modal.inquire']}</a>
+          </div>
+        </div>
+      `;
+
+      modal.classList.remove('hidden');
+      setTimeout(() => modal.classList.remove('opacity-0'), 10);
+    }
+
+    function closeModal() {
+      const modal = document.getElementById('project-modal');
+      modal.classList.add('opacity-0');
+      setTimeout(() => modal.classList.add('hidden'), 300);
+    }
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') closeModal();
+    });
+
+    function prefillContact(projectTitle) {
+      const subjectInput = document.getElementById('form-subject');
+      if (subjectInput) {
+        subjectInput.value = `${translations[currentLang]['modal.inquiryPrefix']} ${projectTitle}`;
+      }
+    }
+
+    // --- 7. Contact Form Handler ---
+    function handleContactSubmit(e) {
+      e.preventDefault();
+      const submitBtn = document.getElementById('form-submit-btn');
+      const btnText = document.getElementById('submit-btn-text');
+      const spinner = document.getElementById('submit-spinner');
+      const ui = translations[currentLang];
+
+      btnText.textContent = ui['form.sending'];
+      spinner.classList.remove('hidden');
+      submitBtn.disabled = true;
+
+      setTimeout(() => {
+        btnText.textContent = ui['form.sent'];
+        spinner.classList.add('hidden');
+        showToast(ui['toast.sent']);
+        document.getElementById('contact-form').reset();
+
+        setTimeout(() => {
+          btnText.textContent = translations[currentLang]['form.submitBtn'];
+          submitBtn.disabled = false;
+        }, 3000);
+      }, 1000);
+    }
+
+    // --- 8. Back to Top Utility ---
+    function scrollToTop() {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    // --- 9. Scroll Animations & Scroll-Spy ---
+    window.addEventListener('load', () => {
+      if (typeof gsap !== 'undefined' && typeof ScrollTrigger !== 'undefined') {
+        gsap.registerPlugin(ScrollTrigger);
+
+        // Reading Progress Bar
+        gsap.to('#scroll-progress', {
+          width: '100%',
+          ease: 'none',
+          scrollTrigger: {
+            trigger: 'body',
+            start: 'top top',
+            end: 'bottom bottom',
+            scrub: 0.3
+          }
+        });
+
+        // Hero Entrance
+        gsap.fromTo('.hero-text-animate > *',
+          { y: 24, opacity: 0 },
+          { y: 0, opacity: 1, duration: 0.7, stagger: 0.1, ease: 'power3.out', clearProps: 'transform,opacity' }
+        );
+
+        gsap.fromTo('.hero-terminal-animate',
+          { y: 24, opacity: 0 },
+          { y: 0, opacity: 1, duration: 0.8, delay: 0.2, ease: 'power3.out', clearProps: 'transform,opacity' }
+        );
+      }
+
+      // Reusable Scroll Reveal Observer (Sections, Bento Cards, Skills, Projects, Contact)
+      if ('IntersectionObserver' in window && typeof gsap !== 'undefined') {
+        const revealObserver = new IntersectionObserver((entries, obs) => {
+          const visible = entries.filter(e => e.isIntersecting).map(e => e.target);
+          if (visible.length > 0) {
+            gsap.fromTo(visible,
+              { y: 28, opacity: 0, scale: 0.98 },
+              {
+                y: 0,
+                opacity: 1,
+                scale: 1,
+                duration: 0.6,
+                stagger: 0.08,
+                ease: 'power2.out',
+                clearProps: 'transform,opacity'
+              }
+            );
+            visible.forEach(el => obs.unobserve(el));
+          }
+        }, { threshold: 0.08, rootMargin: '0px 0px -30px 0px' });
+
+        document.querySelectorAll('.scroll-reveal, .skill-card, .project-card').forEach(el => {
+          revealObserver.observe(el);
+        });
+      }
+
+      // Active Section Scroll-Spy
+      const sections = document.querySelectorAll('section[id]');
+      const navLinks = document.querySelectorAll('.nav-link');
+      const mobileNavItems = document.querySelectorAll('.mobile-nav-item');
+
+      function updateActiveNav() {
+        let currentSec = 'home';
+        sections.forEach(sec => {
+          const top = sec.offsetTop - 180;
+          if (window.scrollY >= top) {
+            currentSec = sec.getAttribute('id');
+          }
+        });
+
+        navLinks.forEach(link => {
+          if (link.getAttribute('href') === `#${currentSec}`) {
+            link.classList.add('text-sky-600', 'dark:text-sky-400', 'font-bold');
+          } else {
+            link.classList.remove('text-sky-600', 'dark:text-sky-400', 'font-bold');
+          }
+        });
+
+        mobileNavItems.forEach(item => {
+          if (item.getAttribute('data-section') === currentSec) {
+            item.className = 'mobile-nav-item flex flex-col items-center py-1.5 px-3 rounded-xl text-[11px] font-semibold transition-all bg-sky-500/15 text-sky-600 dark:text-sky-400 border border-sky-500/30';
+          } else {
+            item.className = 'mobile-nav-item flex flex-col items-center py-1.5 px-3 rounded-xl text-[11px] font-medium transition-all text-slate-600 dark:text-zinc-400';
+          }
+        });
+      }
+
+      window.addEventListener('scroll', updateActiveNav, { passive: true });
+      updateActiveNav();
+    });
+  </script>
 </body>
 </html>
